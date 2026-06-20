@@ -1,0 +1,22 @@
+{
+  "id": "case_093",
+  "buggy_code": "result = np.einsum('ij,jk->ik', A, B.T)",
+  "task": "Use einsum to perform standard matrix multiplication A @ B",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: B.T transposes B, changing the operation",
+  "clarification_query": "What einsum string performs A @ B (standard matmul) without transposing B?",
+  "clarification_options": [
+    "'ij,jk->ik'",
+    "'ij,kj->ik'",
+    "'ij,jk->ki'",
+    "'ij,jk->ij'"
+  ],
+  "expected_user_response": "'ij,jk->ik'",
+  "corrected_code": "result = np.einsum('ij,jk->ik', A, B)",
+  "explanation": "'ij,jk->ik' sums over j (the shared dimension) producing (i,k). Passing B.T changes the semantics to 'ij,kj->ik'.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

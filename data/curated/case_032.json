@@ -1,0 +1,22 @@
+{
+  "id": "case_032",
+  "buggy_code": "long_df = df.melt(id_vars=['year'], value_vars=['q1','q2','q3','q4'])",
+  "task": "Melt the dataframe keeping 'product' as identifier, not 'year'",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_column_selection",
+  "error_location": "line 1: id_vars='year' should be id_vars='product'",
+  "clarification_query": "Which column should be kept as the identifier variable?",
+  "clarification_options": [
+    "product",
+    "year",
+    "quarter",
+    "value"
+  ],
+  "expected_user_response": "product",
+  "corrected_code": "long_df = df.melt(id_vars=['product'], value_vars=['q1','q2','q3','q4'])",
+  "explanation": "id_vars specifies which columns remain fixed. The task requires 'product' as the identifier, not 'year'.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

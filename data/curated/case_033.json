@@ -1,0 +1,22 @@
+{
+  "id": "case_033",
+  "buggy_code": "result = df.groupby(['dept','role'])['salary'].mean().unstack('dept')",
+  "task": "Compute mean salary by dept and role, with role as columns",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: unstack('dept') puts dept as columns instead of role",
+  "clarification_query": "Which level should be unstacked to make role the columns?",
+  "clarification_options": [
+    "unstack('role')",
+    "unstack('dept')",
+    "unstack(0)",
+    "unstack(-2)"
+  ],
+  "expected_user_response": "unstack('role')",
+  "corrected_code": "result = df.groupby(['dept','role'])['salary'].mean().unstack('role')",
+  "explanation": "unstack('dept') moves dept to columns. To make role the columns, unstack('role') is needed.",
+  "difficulty": "hard",
+  "category": "pandas"
+}

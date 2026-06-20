@@ -1,0 +1,13 @@
+split: test
+max_turns: 5
+baselines:
+  - pylint
+  - one_shot_slm
+  - gpt4
+  - gemini
+output_dir: results/
+metrics:
+  - error_resolution_accuracy
+  - interaction_efficiency
+  - execution_correctness
+  - ast_similarity

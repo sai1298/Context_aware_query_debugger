@@ -1,0 +1,22 @@
+{
+  "id": "case_057",
+  "buggy_code": "df_sorted = df.sort_values(['dept','salary'], ascending=[True, True])",
+  "task": "Sort by department ascending, then salary descending within each department",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: both ascending; salary should be descending",
+  "clarification_query": "How should the ascending parameter look to sort dept asc and salary desc?",
+  "clarification_options": [
+    "[True, False]",
+    "[True, True]",
+    "[False, True]",
+    "[False, False]"
+  ],
+  "expected_user_response": "[True, False]",
+  "corrected_code": "df_sorted = df.sort_values(['dept','salary'], ascending=[True, False])",
+  "explanation": "ascending=[True, True] sorts both columns ascending. [True, False] sorts dept ascending and salary descending.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

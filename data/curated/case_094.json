@@ -1,0 +1,22 @@
+{
+  "id": "case_094",
+  "buggy_code": "idx = np.argsort(scores)[-1]\nbest = names[idx]",
+  "task": "Find the name corresponding to the top 3 highest scores",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: [-1] retrieves only the single best, not top 3",
+  "clarification_query": "How do you get the indices of the top 3 highest scores?",
+  "clarification_options": [
+    "np.argsort(scores)[-3:]",
+    "np.argsort(scores)[-1]",
+    "np.argmax(scores)",
+    "np.argsort(-scores)[:3]"
+  ],
+  "expected_user_response": "np.argsort(scores)[-3:]",
+  "corrected_code": "top3_idx = np.argsort(scores)[-3:]\nbest = names[top3_idx]",
+  "explanation": "[-1] gives only the highest index. [-3:] gives the last 3 (highest 3 values when sorted ascending).",
+  "difficulty": "medium",
+  "category": "numpy"
+}

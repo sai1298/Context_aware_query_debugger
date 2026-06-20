@@ -1,0 +1,20 @@
+{
+  "id": "case_009",
+  "buggy_code": "total_price = quantity * unit_cost\ndiscount = total_price * discount_rate\nfinal_price = total_price - unit_cost",
+  "task": "Calculate the final price after applying the discount to the total price",
+  "libs": [],
+  "error_type": "wrong_variable",
+  "error_location": "line 3: total_price - unit_cost",
+  "clarification_query": "What should be subtracted from total_price to compute the final price?",
+  "clarification_options": [
+    "the computed discount (discount)",
+    "the unit cost (unit_cost)",
+    "the quantity (quantity)",
+    "the discount rate (discount_rate)"
+  ],
+  "expected_user_response": "the computed discount (discount)",
+  "corrected_code": "total_price = quantity * unit_cost\ndiscount = total_price * discount_rate\nfinal_price = total_price - discount",
+  "explanation": "The code subtracts unit_cost from total_price instead of the computed discount variable. The correct expression is total_price - discount.",
+  "difficulty": "easy",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_040",
+  "buggy_code": "df['flagged'] = df['score'].mask(df['score'] < 0)",
+  "task": "Flag rows where score is above 100 as NaN",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: mask condition is < 0 instead of > 100",
+  "clarification_query": "What condition should trigger the NaN replacement?",
+  "clarification_options": [
+    "score > 100",
+    "score < 0",
+    "score == 0",
+    "score < 100"
+  ],
+  "expected_user_response": "score > 100",
+  "corrected_code": "df['flagged'] = df['score'].mask(df['score'] > 100)",
+  "explanation": "mask() replaces values where the condition is True. The condition should be score > 100, not < 0.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

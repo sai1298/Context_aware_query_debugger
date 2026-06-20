@@ -1,0 +1,22 @@
+{
+  "id": "case_005",
+  "buggy_code": "import numpy as np\na = np.array([1, 2, 3])   # shape (3,)\nb = np.array([10, 20])    # shape (2,)\nresult = a + b",
+  "task": "Add a bias vector b of length 2 to each of the 2 rows of matrix a shaped (2, 3)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "broadcasting_error",
+  "error_location": "line 4: a + b",
+  "clarification_query": "What should the shape of matrix a be so that adding bias vector b (length 2) makes sense row-wise?",
+  "clarification_options": [
+    "(2, 3) \u2014 2 rows, 3 columns",
+    "(3,) \u2014 flat vector of length 3",
+    "(3, 2) \u2014 3 rows, 2 columns",
+    "(2,) \u2014 flat vector of length 2"
+  ],
+  "expected_user_response": "(2, 3) \u2014 2 rows, 3 columns",
+  "corrected_code": "import numpy as np\na = np.array([[1, 2, 3], [4, 5, 6]])  # shape (2, 3)\nb = np.array([10, 20])                # shape (2,)\nresult = a + b[:, np.newaxis]",
+  "explanation": "The original 'a' is shape (3,) and 'b' is shape (2,); they cannot broadcast together. Reshaping 'a' to (2, 3) and adding b[:, np.newaxis] (shape (2,1)) broadcasts correctly across columns.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

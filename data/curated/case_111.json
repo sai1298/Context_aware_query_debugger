@@ -1,0 +1,22 @@
+{
+  "id": "case_111",
+  "buggy_code": "plt.fill_between(x, y1, y2, where=(y1 < y2))",
+  "task": "Shade the region where y1 is greater than y2",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: condition is y1 < y2, should be y1 > y2",
+  "clarification_query": "What where condition shades regions where y1 exceeds y2?",
+  "clarification_options": [
+    "y1 > y2",
+    "y1 < y2",
+    "y1 == y2",
+    "y1 >= y2"
+  ],
+  "expected_user_response": "y1 > y2",
+  "corrected_code": "plt.fill_between(x, y1, y2, where=(y1 > y2))",
+  "explanation": "where=(y1 < y2) shades where y2 is on top. where=(y1 > y2) shades where y1 is on top.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

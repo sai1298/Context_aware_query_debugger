@@ -1,0 +1,22 @@
+{
+  "id": "case_006",
+  "buggy_code": "import matplotlib.pyplot as plt\nplt.pie(category_counts.values)\nplt.show()",
+  "task": "Show the distribution of sales across categories as a bar chart",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_plot_type",
+  "error_location": "line 2: plt.pie(...)",
+  "clarification_query": "Which chart type should be used to display the sales distribution across categories?",
+  "clarification_options": [
+    "bar chart (plt.bar)",
+    "pie chart (plt.pie)",
+    "line chart (plt.plot)",
+    "scatter plot (plt.scatter)"
+  ],
+  "expected_user_response": "bar chart (plt.bar)",
+  "corrected_code": "import matplotlib.pyplot as plt\nplt.bar(category_counts.index, category_counts.values)\nplt.show()",
+  "explanation": "A pie chart was used but the task specifies a bar chart. plt.pie should be replaced with plt.bar, passing both the category labels and their values.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

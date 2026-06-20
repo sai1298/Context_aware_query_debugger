@@ -1,0 +1,22 @@
+{
+  "id": "case_074",
+  "buggy_code": "corr = np.corrcoef(x, y)[0][0]",
+  "task": "Extract the correlation coefficient between arrays x and y",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: [0][0] extracts variance of x, not correlation",
+  "clarification_query": "In the 2x2 correlation matrix returned by np.corrcoef(x,y), where is the correlation between x and y?",
+  "clarification_options": [
+    "[0][1] or [1][0]",
+    "[0][0]",
+    "[1][1]",
+    "[0][0] and [1][1]"
+  ],
+  "expected_user_response": "[0][1] or [1][0]",
+  "corrected_code": "corr = np.corrcoef(x, y)[0][1]",
+  "explanation": "np.corrcoef returns [[var(x), corr(x,y)],[corr(y,x), var(y)]]. The cross-correlation is at [0,1] or [1,0], not [0,0].",
+  "difficulty": "hard",
+  "category": "numpy"
+}

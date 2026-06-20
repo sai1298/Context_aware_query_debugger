@@ -1,0 +1,22 @@
+{
+  "id": "case_122",
+  "buggy_code": "fig, ax = plt.subplots()\nax.scatter(x, y)\nax2 = ax.twiny()\nax2.plot(x2, y2)",
+  "task": "Add a second x-axis sharing the same y-axis (twin y, not twin x)",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: twiny() shares x \u2014 should use twinx() to share y",
+  "clarification_query": "Which method creates a second x-axis that shares the same y-axis?",
+  "clarification_options": [
+    "ax.twiny()",
+    "ax.twinx()",
+    "ax.twin('x')",
+    "ax.secondary_xaxis()"
+  ],
+  "expected_user_response": "ax.twiny()",
+  "corrected_code": "fig, ax = plt.subplots()\nax.scatter(x, y)\nax2 = ax.twiny()\nax2.plot(x2, y2)",
+  "explanation": "twiny() creates a new x-axis at the top sharing the y-axis. twinx() creates a new y-axis on the right sharing the x-axis.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

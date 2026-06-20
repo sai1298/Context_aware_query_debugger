@@ -1,0 +1,22 @@
+{
+  "id": "case_030",
+  "buggy_code": "df['year'] = df['date'].dt.month",
+  "task": "Extract the year from a datetime column",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: .dt.month extracts month, not year",
+  "clarification_query": "Which datetime accessor extracts the year?",
+  "clarification_options": [
+    ".dt.year",
+    ".dt.month",
+    ".dt.day",
+    ".dt.quarter"
+  ],
+  "expected_user_response": ".dt.year",
+  "corrected_code": "df['year'] = df['date'].dt.year",
+  "explanation": ".dt.month returns the month number (1-12). .dt.year is needed to extract the year.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

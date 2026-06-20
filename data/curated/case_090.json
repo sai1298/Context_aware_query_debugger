@@ -1,0 +1,22 @@
+{
+  "id": "case_090",
+  "buggy_code": "result = np.inner(A, B)",
+  "task": "Compute the standard matrix multiplication of 2D arrays A (m,k) and B (k,n)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: np.inner for 2D does not compute standard matmul",
+  "clarification_query": "For 2D arrays, which function computes standard matrix multiplication?",
+  "clarification_options": [
+    "np.matmul(A, B) or A @ B",
+    "np.inner(A, B)",
+    "np.dot(A, B)",
+    "both np.matmul and np.dot"
+  ],
+  "expected_user_response": "both np.matmul and np.dot",
+  "corrected_code": "result = np.matmul(A, B)",
+  "explanation": "np.inner for 2D arrays computes sum of products of last axes, not standard matmul. np.matmul or @ operator is correct.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

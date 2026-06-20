@@ -1,0 +1,22 @@
+{
+  "id": "case_102",
+  "buggy_code": "plt.plot(x, y, marker='x', linestyle='solid')",
+  "task": "Plot a scatter-like line using circle markers with dashed line style",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: marker='x' should be 'o'; linestyle='solid' should be 'dashed'",
+  "clarification_query": "Which marker and linestyle produce circle markers with a dashed line?",
+  "clarification_options": [
+    "marker='o', linestyle='dashed'",
+    "marker='x', linestyle='solid'",
+    "marker='o', linestyle='dotted'",
+    "marker='circle', linestyle='--'"
+  ],
+  "expected_user_response": "marker='o', linestyle='dashed'",
+  "corrected_code": "plt.plot(x, y, marker='o', linestyle='dashed')",
+  "explanation": "'x' is an X marker; 'o' gives circles. 'solid' is the default line; 'dashed' gives a dashed line.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_075",
+  "buggy_code": "coeffs = np.polyfit(x, y, deg=1)\nfit = np.polyval(coeffs, x)",
+  "task": "Fit a quadratic (degree 2) polynomial to data points",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: deg=1 fits a line, not a quadratic",
+  "clarification_query": "What degree argument fits a quadratic polynomial?",
+  "clarification_options": [
+    "deg=2",
+    "deg=1",
+    "deg=3",
+    "deg=0"
+  ],
+  "expected_user_response": "deg=2",
+  "corrected_code": "coeffs = np.polyfit(x, y, deg=2)\nfit = np.polyval(coeffs, x)",
+  "explanation": "deg=1 fits a line (y = ax + b). deg=2 fits a quadratic (y = ax\u00b2 + bx + c).",
+  "difficulty": "easy",
+  "category": "numpy"
+}

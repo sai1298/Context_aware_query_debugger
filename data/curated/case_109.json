@@ -1,0 +1,22 @@
+{
+  "id": "case_109",
+  "buggy_code": "plt.grid(axis='x')",
+  "task": "Add a grid on both axes (x and y)",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: axis='x' adds grid only on x-axis",
+  "clarification_query": "What axis argument adds gridlines on both axes?",
+  "clarification_options": [
+    "axis='both'",
+    "axis='x'",
+    "axis='y'",
+    "axis='all'"
+  ],
+  "expected_user_response": "axis='both'",
+  "corrected_code": "plt.grid(axis='both')",
+  "explanation": "axis='x' draws vertical gridlines only. axis='both' draws gridlines for both x and y axes.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

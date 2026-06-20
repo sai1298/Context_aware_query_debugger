@@ -1,0 +1,22 @@
+{
+  "id": "case_044",
+  "buggy_code": "df['dept_avg'] = df.groupby('dept')['salary'].transform('mean')\ndf['above_avg'] = df['salary'] > df['dept_avg']",
+  "task": "Flag employees earning above their department average using transform",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_aggregation",
+  "error_location": "correct code \u2014 this tests that transform is used properly",
+  "clarification_query": "Does groupby transform return a value aligned to the original DataFrame index?",
+  "clarification_options": [
+    "yes, same index as original df",
+    "no, it returns a grouped index",
+    "only when reset_index is called",
+    "only for numeric columns"
+  ],
+  "expected_user_response": "yes, same index as original df",
+  "corrected_code": "df['dept_avg'] = df.groupby('dept')['salary'].transform('mean')\ndf['above_avg'] = df['salary'] > df['dept_avg']",
+  "explanation": "transform('mean') broadcasts the group mean back to each row, aligned to the original index. This is the correct pattern.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

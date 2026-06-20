@@ -1,0 +1,22 @@
+{
+  "id": "case_126",
+  "buggy_code": "for i in range(1, len(items)):\n    process(items[i])",
+  "task": "Process every element in the list starting from index 0",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: range starts at 1, skipping index 0",
+  "clarification_query": "What range arguments include index 0 through the last element?",
+  "clarification_options": [
+    "range(len(items))",
+    "range(1, len(items))",
+    "range(0, len(items)-1)",
+    "range(0, len(items)+1)"
+  ],
+  "expected_user_response": "range(len(items))",
+  "corrected_code": "for i in range(len(items)):\n    process(items[i])",
+  "explanation": "range(1, len(items)) starts at index 1, skipping the first element. range(len(items)) starts at 0.",
+  "difficulty": "easy",
+  "category": "misc"
+}

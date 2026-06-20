@@ -1,0 +1,22 @@
+{
+  "id": "case_118",
+  "buggy_code": "plt.plot(x, y)\nplt.xlim(10, 0)",
+  "task": "Set x-axis limits from 0 to 10 (left to right)",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: xlim(10, 0) reverses the x-axis",
+  "clarification_query": "What xlim call sets x from 0 on the left to 10 on the right?",
+  "clarification_options": [
+    "xlim(0, 10)",
+    "xlim(10, 0)",
+    "xlim(min=0, max=10)",
+    "xlim([0, 10])"
+  ],
+  "expected_user_response": "xlim(0, 10)",
+  "corrected_code": "plt.plot(x, y)\nplt.xlim(0, 10)",
+  "explanation": "xlim(10, 0) makes the x-axis decrease from left to right. xlim(0, 10) sets the conventional left-to-right direction.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_069",
+  "buggy_code": "result = np.concatenate([arr1, arr2], axis=1)",
+  "task": "Concatenate two 2D arrays along the row axis (add more rows)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=1 concatenates along columns",
+  "clarification_query": "Which axis concatenates along rows (stacks vertically)?",
+  "clarification_options": [
+    "axis=0",
+    "axis=1",
+    "axis=-1",
+    "axis=2"
+  ],
+  "expected_user_response": "axis=0",
+  "corrected_code": "result = np.concatenate([arr1, arr2], axis=0)",
+  "explanation": "axis=1 extends columns (horizontal). axis=0 extends rows (vertical), which is the requested operation.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_056",
+  "buggy_code": "result = df.query('score > 80 & grade = \"A\"')",
+  "task": "Use df.query() to filter score > 80 AND grade == 'A'",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: single '=' used for equality in query string",
+  "clarification_query": "What equality operator must be used inside df.query()?",
+  "clarification_options": [
+    "==",
+    "=",
+    "is",
+    "eq"
+  ],
+  "expected_user_response": "==",
+  "corrected_code": "result = df.query('score > 80 & grade == \"A\"')",
+  "explanation": "A single = in query string syntax causes a SyntaxError. The equality operator inside query strings is ==.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

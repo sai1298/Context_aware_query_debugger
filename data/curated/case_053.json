@@ -1,0 +1,22 @@
+{
+  "id": "case_053",
+  "buggy_code": "result = df.drop_duplicates(subset=['email'])\nresult.reset_index()",
+  "task": "Drop duplicate emails and reset the integer index on the resulting dataframe",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "missing_reset_index",
+  "error_location": "line 2: reset_index() result not assigned back",
+  "clarification_query": "Does reset_index() modify the dataframe in place by default?",
+  "clarification_options": [
+    "no, must assign result or use inplace=True",
+    "yes",
+    "only after drop_duplicates",
+    "only when drop=True"
+  ],
+  "expected_user_response": "no, must assign result or use inplace=True",
+  "corrected_code": "result = df.drop_duplicates(subset=['email']).reset_index(drop=True)",
+  "explanation": "reset_index() returns a new DataFrame. Without assignment, the reset index is discarded.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

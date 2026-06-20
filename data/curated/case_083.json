@@ -1,0 +1,22 @@
+{
+  "id": "case_083",
+  "buggy_code": "counts, edges = np.histogram(data, bins=5)\nbucket_centers = (edges[:-1] + edges[1:]) / 2",
+  "task": "Compute histogram with 20 bins and find bucket centers",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: bins=5 instead of bins=20",
+  "clarification_query": "What bins value produces 20 buckets?",
+  "clarification_options": [
+    "20",
+    "5",
+    "10",
+    "'auto'"
+  ],
+  "expected_user_response": "20",
+  "corrected_code": "counts, edges = np.histogram(data, bins=20)\nbucket_centers = (edges[:-1] + edges[1:]) / 2",
+  "explanation": "bins=5 produces 5 buckets. The task requires 20 buckets.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

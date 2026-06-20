@@ -1,0 +1,22 @@
+{
+  "id": "case_064",
+  "buggy_code": "result = np.clip(arr, a_min=0, a_max=50)",
+  "task": "Clip array values to the range [0, 255] for image processing",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: a_max=50 instead of a_max=255",
+  "clarification_query": "What should the upper clip bound be for 8-bit image values?",
+  "clarification_options": [
+    "255",
+    "50",
+    "128",
+    "100"
+  ],
+  "expected_user_response": "255",
+  "corrected_code": "result = np.clip(arr, a_min=0, a_max=255)",
+  "explanation": "Image pixel values range 0\u2013255. a_max=50 would clip most pixel values unnecessarily.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_130",
+  "buggy_code": "for item in items:\n    if item == target:\n        found = True\nprint(found)",
+  "task": "Search a list and break out of the loop when the target is found",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: no break statement; loop continues unnecessarily",
+  "clarification_query": "What statement exits the loop immediately after finding the target?",
+  "clarification_options": [
+    "break",
+    "continue",
+    "return",
+    "pass"
+  ],
+  "expected_user_response": "break",
+  "corrected_code": "for item in items:\n    if item == target:\n        found = True\n        break\nprint(found)",
+  "explanation": "Without break, the loop continues through all elements even after the target is found. break exits immediately.",
+  "difficulty": "easy",
+  "category": "misc"
+}

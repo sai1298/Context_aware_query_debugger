@@ -1,0 +1,22 @@
+{
+  "id": "case_086",
+  "buggy_code": "outer = np.outer(v1, v2)",
+  "task": "Compute the inner (dot) product of two 1D vectors",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: np.outer computes outer product, not inner/dot product",
+  "clarification_query": "Which function computes the scalar dot product of two 1D vectors?",
+  "clarification_options": [
+    "np.dot(v1, v2)",
+    "np.outer(v1, v2)",
+    "np.inner(v1, v2) \u2014 same as dot for 1D",
+    "both np.dot and np.inner"
+  ],
+  "expected_user_response": "both np.dot and np.inner",
+  "corrected_code": "outer = np.dot(v1, v2)",
+  "explanation": "np.outer(v1, v2) produces a 2D rank-1 matrix. np.dot(v1, v2) or np.inner(v1, v2) gives the scalar dot product.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

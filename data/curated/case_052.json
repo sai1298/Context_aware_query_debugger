@@ -1,0 +1,22 @@
+{
+  "id": "case_052",
+  "buggy_code": "result = df.sample(frac=0.1, replace=False, random_state=42)",
+  "task": "Sample 20% of the dataframe with replacement for bootstrapping",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: frac=0.1 samples 10%, and replace=False disallows replacement",
+  "clarification_query": "What parameters produce a 20% sample with replacement?",
+  "clarification_options": [
+    "frac=0.2, replace=True",
+    "frac=0.1, replace=False",
+    "frac=20, replace=True",
+    "n=0.2, replace=True"
+  ],
+  "expected_user_response": "frac=0.2, replace=True",
+  "corrected_code": "result = df.sample(frac=0.2, replace=True, random_state=42)",
+  "explanation": "frac=0.1 draws 10% of rows and replace=False prevents resampling. Bootstrap requires frac=0.2 and replace=True.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

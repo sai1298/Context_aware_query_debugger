@@ -1,0 +1,22 @@
+{
+  "id": "case_063",
+  "buggy_code": "idx = np.argmax(arr, axis=0)",
+  "task": "Find the index of the maximum value in the entire flattened array",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: axis=0 finds argmax per column, not over flattened array",
+  "clarification_query": "How do you find the index of the global maximum across all elements?",
+  "clarification_options": [
+    "np.argmax(arr) with no axis",
+    "np.argmax(arr, axis=0)",
+    "np.argmax(arr, axis=1)",
+    "np.argmax(arr.flat)"
+  ],
+  "expected_user_response": "np.argmax(arr) with no axis",
+  "corrected_code": "idx = np.argmax(arr)",
+  "explanation": "Specifying axis=0 returns per-column argmax. Omitting axis flattens the array and returns the global maximum index.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

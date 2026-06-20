@@ -1,0 +1,22 @@
+{
+  "id": "case_045",
+  "buggy_code": "n_unique = df.groupby('store')['product'].count()",
+  "task": "Count distinct products per store",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_aggregation",
+  "error_location": "line 1: .count() counts all non-null rows, not unique values",
+  "clarification_query": "Which aggregation counts distinct values?",
+  "clarification_options": [
+    "nunique()",
+    "count()",
+    "unique()",
+    "distinct()"
+  ],
+  "expected_user_response": "nunique()",
+  "corrected_code": "n_unique = df.groupby('store')['product'].nunique()",
+  "explanation": ".count() counts total non-null entries including duplicates. .nunique() counts only distinct values.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_036",
+  "buggy_code": "top5 = df.nlargest(5, 'revenue').index.tolist()",
+  "task": "Get the names of the 5 products with highest revenue",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_column_selection",
+  "error_location": "line 1: .index used but product names are in 'product' column",
+  "clarification_query": "If product names are in a 'product' column (not the index), how do you extract them?",
+  "clarification_options": [
+    "df.nlargest(5,'revenue')['product'].tolist()",
+    "df.nlargest(5,'revenue').index.tolist()",
+    "df.nlargest(5,'product')['revenue'].tolist()",
+    "df.nlargest('revenue',5)['product'].tolist()"
+  ],
+  "expected_user_response": "df.nlargest(5,'revenue')['product'].tolist()",
+  "corrected_code": "top5 = df.nlargest(5, 'revenue')['product'].tolist()",
+  "explanation": "Unless 'product' is set as the index, product names live in the 'product' column, not .index.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

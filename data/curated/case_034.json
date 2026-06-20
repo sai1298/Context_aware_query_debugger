@@ -1,0 +1,22 @@
+{
+  "id": "case_034",
+  "buggy_code": "ct = pd.crosstab(df['gender'], df['product'], margins=False)",
+  "task": "Create a crosstab of gender vs product with row and column totals",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: margins=False omits row/column totals",
+  "clarification_query": "Which parameter adds row and column totals to crosstab?",
+  "clarification_options": [
+    "margins=True",
+    "totals=True",
+    "sum=True",
+    "include_margins=True"
+  ],
+  "expected_user_response": "margins=True",
+  "corrected_code": "ct = pd.crosstab(df['gender'], df['product'], margins=True)",
+  "explanation": "margins=False (the default) omits the All row/column. Setting margins=True adds totals.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

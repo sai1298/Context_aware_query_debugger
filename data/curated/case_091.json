@@ -1,0 +1,22 @@
+{
+  "id": "case_091",
+  "buggy_code": "ma = np.ma.masked_where(arr < 0, arr)\nresult = ma.mean()",
+  "task": "Mask values above 100 (not below 0) before computing the mean",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: masking condition is < 0 instead of > 100",
+  "clarification_query": "What condition should be used to mask values above 100?",
+  "clarification_options": [
+    "arr > 100",
+    "arr < 0",
+    "arr >= 100",
+    "arr != 100"
+  ],
+  "expected_user_response": "arr > 100",
+  "corrected_code": "ma = np.ma.masked_where(arr > 100, arr)\nresult = ma.mean()",
+  "explanation": "masked_where(condition, arr) masks elements where condition is True. To exclude values above 100, use arr > 100.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

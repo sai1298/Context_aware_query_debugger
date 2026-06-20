@@ -1,0 +1,22 @@
+{
+  "id": "case_026",
+  "buggy_code": "result = pd.concat([df1, df2], axis=1)",
+  "task": "Stack two dataframes with the same columns vertically",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=1 concatenates horizontally",
+  "clarification_query": "Which axis value stacks dataframes vertically (more rows)?",
+  "clarification_options": [
+    "axis=0",
+    "axis=1",
+    "axis='columns'",
+    "axis=2"
+  ],
+  "expected_user_response": "axis=0",
+  "corrected_code": "result = pd.concat([df1, df2], axis=0)",
+  "explanation": "axis=1 concatenates side by side (more columns). axis=0 stacks vertically (more rows).",
+  "difficulty": "easy",
+  "category": "pandas"
+}

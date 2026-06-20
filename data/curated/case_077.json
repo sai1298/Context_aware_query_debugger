@@ -1,0 +1,22 @@
+{
+  "id": "case_077",
+  "buggy_code": "tiled = np.tile(arr, (2, 1))",
+  "task": "Tile a 1D array 3 times along the column axis to form a 2D matrix with 3 copies",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: (2,1) tiles 2 rows of 1 copy; should be (1,3)",
+  "clarification_query": "What reps tuple tiles a 1D array 3 times along columns?",
+  "clarification_options": [
+    "(1, 3)",
+    "(2, 1)",
+    "(3,)",
+    "(3, 1)"
+  ],
+  "expected_user_response": "(1, 3)",
+  "corrected_code": "tiled = np.tile(arr, (1, 3))",
+  "explanation": "np.tile(arr, (2,1)) makes 2 row copies of 1 column-copy. (1, 3) keeps 1 row and repeats 3 times along columns.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

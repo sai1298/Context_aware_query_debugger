@@ -1,0 +1,22 @@
+{
+  "id": "case_003",
+  "buggy_code": "high_value = df[df['price'] < 1000]",
+  "task": "Filter the DataFrame to keep only rows where price is above 1000",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: df['price'] < 1000",
+  "clarification_query": "Should the filter keep rows where price is above or below 1000?",
+  "clarification_options": [
+    "above 1000 (price > 1000)",
+    "below 1000 (price < 1000)",
+    "equal to 1000 (price == 1000)",
+    "not equal to 1000 (price != 1000)"
+  ],
+  "expected_user_response": "above 1000 (price > 1000)",
+  "corrected_code": "high_value = df[df['price'] > 1000]",
+  "explanation": "The condition uses '<' (less than) but the task requires rows where price is greater than 1000. The operator should be '>'.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

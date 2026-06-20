@@ -1,0 +1,20 @@
+{
+  "id": "case_010",
+  "buggy_code": "def is_adult(age):\n    return age < 18",
+  "task": "Return True if a person's age qualifies them as an adult (18 or older)",
+  "libs": [],
+  "error_type": "logic_inversion",
+  "error_location": "line 2: age < 18",
+  "clarification_query": "Should is_adult return True when age is less than 18 or when age is 18 or older?",
+  "clarification_options": [
+    "True when age >= 18 (adult)",
+    "True when age < 18 (minor)",
+    "True when age == 18 exactly",
+    "True when age > 18 (strictly older than 18)"
+  ],
+  "expected_user_response": "True when age >= 18 (adult)",
+  "corrected_code": "def is_adult(age):\n    return age >= 18",
+  "explanation": "The function returns True for ages below 18, which is the opposite of the intended logic. The condition should be age >= 18 to correctly identify adults.",
+  "difficulty": "easy",
+  "category": "misc"
+}

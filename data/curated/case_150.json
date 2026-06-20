@@ -1,0 +1,22 @@
+{
+  "id": "case_150",
+  "buggy_code": "result = []\nfor x in range(5):\n    for y in range(5):\n        if x != y:\n            result.append((x,y))\n        else:\n            continue",
+  "task": "Build pairs (x,y) where x != y; the else/continue is redundant",
+  "libs": [
+    "python"
+  ],
+  "error_type": "logic_inversion",
+  "error_location": "lines 6-7: else: continue is a no-op (loop continues anyway)",
+  "clarification_query": "Is the else: continue block necessary when it's the last statement in the if/else?",
+  "clarification_options": [
+    "no, continue is the default loop behavior",
+    "yes, it makes the intent explicit",
+    "yes, without it x==y pairs would be included",
+    "no, but it prevents the append"
+  ],
+  "expected_user_response": "no, continue is the default loop behavior",
+  "corrected_code": "result = [(x,y) for x in range(5) for y in range(5) if x != y]",
+  "explanation": "After an if block, the loop continues to the next iteration automatically. else: continue adds no effect and can be removed.",
+  "difficulty": "medium",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_107",
+  "buggy_code": "plt.xticks(rotation=0)",
+  "task": "Rotate x-axis tick labels 45 degrees for readability",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: rotation=0 means no rotation",
+  "clarification_query": "What rotation angle in degrees makes x-axis labels diagonal for readability?",
+  "clarification_options": [
+    "45",
+    "0",
+    "90",
+    "180"
+  ],
+  "expected_user_response": "45",
+  "corrected_code": "plt.xticks(rotation=45)",
+  "explanation": "rotation=0 keeps labels horizontal. rotation=45 tilts them diagonally to prevent overlapping long category labels.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

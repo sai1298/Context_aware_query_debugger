@@ -1,0 +1,20 @@
+{
+  "id": "case_008",
+  "buggy_code": "items = ['a', 'b', 'c', 'd']\nfor i in range(len(items) + 1):\n    print(items[i])",
+  "task": "Print every element in the list items",
+  "libs": [],
+  "error_type": "off_by_one",
+  "error_location": "line 2: range(len(items) + 1)",
+  "clarification_query": "Should the loop index go up to and including the last element index, or stop one before it?",
+  "clarification_options": [
+    "stop one before len(items) \u2014 range(len(items))",
+    "go up to len(items) inclusive \u2014 range(len(items) + 1)",
+    "start at 1 instead of 0 \u2014 range(1, len(items))",
+    "use a negative step \u2014 range(len(items), 0, -1)"
+  ],
+  "expected_user_response": "stop one before len(items) \u2014 range(len(items))",
+  "corrected_code": "items = ['a', 'b', 'c', 'd']\nfor i in range(len(items)):\n    print(items[i])",
+  "explanation": "range(len(items) + 1) generates indices 0 through len(items), causing an IndexError on the last iteration. The correct upper bound is range(len(items)), which stops at the last valid index.",
+  "difficulty": "easy",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_144",
+  "buggy_code": "words = ['banana', 'apple', 'cherry']\nsorted_words = sorted(words, key=len, reverse=False)",
+  "task": "Sort words by length in descending order (longest first)",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: reverse=False sorts shortest first",
+  "clarification_query": "What reverse value sorts by length with longest words first?",
+  "clarification_options": [
+    "reverse=True",
+    "reverse=False",
+    "key=-len",
+    "key=lambda w: -len(w)"
+  ],
+  "expected_user_response": "reverse=True",
+  "corrected_code": "sorted_words = sorted(words, key=len, reverse=True)",
+  "explanation": "reverse=False (default) puts shortest first. reverse=True reverses the sort order so longest words come first.",
+  "difficulty": "easy",
+  "category": "misc"
+}

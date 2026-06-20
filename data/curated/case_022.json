@@ -1,0 +1,22 @@
+{
+  "id": "case_022",
+  "buggy_code": "df['score'].fillna(0, inplace=True)",
+  "task": "Fill missing scores with the column mean, not zero",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: fillna(0) uses 0 instead of column mean",
+  "clarification_query": "What value should missing scores be filled with?",
+  "clarification_options": [
+    "column mean",
+    "0",
+    "median",
+    "forward fill"
+  ],
+  "expected_user_response": "column mean",
+  "corrected_code": "df['score'].fillna(df['score'].mean(), inplace=True)",
+  "explanation": "fillna(0) replaces NaN with 0, which distorts statistics. Using the column mean preserves the distribution.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

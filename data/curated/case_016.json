@@ -1,0 +1,22 @@
+{
+  "id": "case_016",
+  "buggy_code": "result = df.groupby('dept')['salary'].mean()",
+  "task": "Compute mean salary per department, excluding rows with missing salary",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: NaN rows not dropped before groupby",
+  "clarification_query": "Should rows with missing salary values be excluded before computing the mean?",
+  "clarification_options": [
+    "yes, drop NaN rows first",
+    "no, keep all rows",
+    "fill NaN with 0",
+    "fill NaN with mean"
+  ],
+  "expected_user_response": "yes, drop NaN rows first",
+  "corrected_code": "result = df.dropna(subset=['salary']).groupby('dept')['salary'].mean()",
+  "explanation": "Without dropna, NaN salaries are automatically excluded by mean() but may skew group counts. Explicit dropna is clearer.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

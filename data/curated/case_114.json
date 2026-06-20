@@ -1,0 +1,22 @@
+{
+  "id": "case_114",
+  "buggy_code": "plt.contour(X, Y, Z, levels=3)",
+  "task": "Plot contour lines with 20 levels for smooth visualization",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: levels=3 produces only 3 contour lines",
+  "clarification_query": "What levels value produces 20 contour lines?",
+  "clarification_options": [
+    "20",
+    "3",
+    "10",
+    "5"
+  ],
+  "expected_user_response": "20",
+  "corrected_code": "plt.contour(X, Y, Z, levels=20)",
+  "explanation": "levels=3 draws only 3 contour lines, giving a coarse view. levels=20 provides smooth, detailed contours.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

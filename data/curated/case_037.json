@@ -1,0 +1,22 @@
+{
+  "id": "case_037",
+  "buggy_code": "best_day = df['sales'].idxmax()\nprint(best_day)",
+  "task": "Print the date corresponding to the highest sales (date is in the 'date' column, not index)",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: idxmax() returns the index label, not the date value",
+  "clarification_query": "If the date is in a 'date' column, how do you get the date for the max sales row?",
+  "clarification_options": [
+    "df.loc[df['sales'].idxmax(), 'date']",
+    "df['sales'].idxmax()",
+    "df['date'].idxmax()",
+    "df.loc[df['sales'].max(), 'date']"
+  ],
+  "expected_user_response": "df.loc[df['sales'].idxmax(), 'date']",
+  "corrected_code": "best_day = df.loc[df['sales'].idxmax(), 'date']\nprint(best_day)",
+  "explanation": "idxmax() returns the integer index of the max row. To get the date value, use df.loc[idx, 'date'].",
+  "difficulty": "medium",
+  "category": "pandas"
+}

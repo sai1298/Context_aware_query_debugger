@@ -1,0 +1,22 @@
+{
+  "id": "case_072",
+  "buggy_code": "cs = np.cumsum(matrix, axis=0)",
+  "task": "Compute the cumulative sum across columns (within each row)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=0 accumulates down rows",
+  "clarification_query": "Which axis makes cumsum accumulate across columns (left to right) within each row?",
+  "clarification_options": [
+    "axis=1",
+    "axis=0",
+    "axis=-2",
+    "no axis"
+  ],
+  "expected_user_response": "axis=1",
+  "corrected_code": "cs = np.cumsum(matrix, axis=1)",
+  "explanation": "axis=0 accumulates along the row direction (top to bottom). axis=1 accumulates along columns (left to right within a row).",
+  "difficulty": "medium",
+  "category": "numpy"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_038",
+  "buggy_code": "df['clipped'] = df['score'].clip(lower=0, upper=50)",
+  "task": "Clip scores to the range 0 to 100",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: upper=50 should be upper=100",
+  "clarification_query": "What should the upper clip bound be?",
+  "clarification_options": [
+    "100",
+    "50",
+    "75",
+    "200"
+  ],
+  "expected_user_response": "100",
+  "corrected_code": "df['clipped'] = df['score'].clip(lower=0, upper=100)",
+  "explanation": "upper=50 caps scores at 50, but the valid range is 0\u2013100. upper=100 is correct.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

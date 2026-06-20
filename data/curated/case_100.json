@@ -1,0 +1,22 @@
+{
+  "id": "case_100",
+  "buggy_code": "fig = plt.figure(figsize=(4, 8))",
+  "task": "Create a figure with width 8 inches and height 4 inches (landscape)",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: (4, 8) is portrait (width=4, height=8)",
+  "clarification_query": "figsize=(width, height) \u2014 what values give an 8-wide, 4-tall figure?",
+  "clarification_options": [
+    "(8, 4)",
+    "(4, 8)",
+    "(8, 8)",
+    "(4, 4)"
+  ],
+  "expected_user_response": "(8, 4)",
+  "corrected_code": "fig = plt.figure(figsize=(8, 4))",
+  "explanation": "figsize=(width, height). (4, 8) makes a tall portrait figure. (8, 4) makes the requested wide landscape figure.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

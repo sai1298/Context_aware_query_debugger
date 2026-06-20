@@ -1,0 +1,22 @@
+{
+  "id": "case_020",
+  "buggy_code": "df['rolling_avg'] = df['price'].rolling(window=3).mean()",
+  "task": "Compute a 7-day rolling average of price",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: window=3 instead of window=7",
+  "clarification_query": "What window size should be used for the 7-day rolling average?",
+  "clarification_options": [
+    "7",
+    "3",
+    "14",
+    "30"
+  ],
+  "expected_user_response": "7",
+  "corrected_code": "df['rolling_avg'] = df['price'].rolling(window=7).mean()",
+  "explanation": "window=3 computes a 3-period rolling average, not 7-day as required.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

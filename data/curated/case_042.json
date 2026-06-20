@@ -1,0 +1,22 @@
+{
+  "id": "case_042",
+  "buggy_code": "df['adjusted'] = df['price'] * 1.1\ndf2 = df\ndf2['adjusted'] = df2['adjusted'].round(2)",
+  "task": "Create a copy of df, round the adjusted column in the copy without affecting original",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: df2 = df creates a view/reference, not a copy",
+  "clarification_query": "How do you create an independent copy of a DataFrame?",
+  "clarification_options": [
+    "df.copy()",
+    "df[:]",
+    "df.clone()",
+    "pd.DataFrame(df)"
+  ],
+  "expected_user_response": "df.copy()",
+  "corrected_code": "df['adjusted'] = df['price'] * 1.1\ndf2 = df.copy()\ndf2['adjusted'] = df2['adjusted'].round(2)",
+  "explanation": "df2 = df makes both variables point to the same object. df.copy() creates an independent copy.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

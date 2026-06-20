@@ -1,0 +1,23 @@
+{
+  "id": "case_136",
+  "buggy_code": "import re\nmatches = re.findall(r'\\d+', 'Price: $42.50 and $8')",
+  "task": "Extract decimal numbers including the decimal point (e.g., '42.50')",
+  "libs": [
+    "python",
+    "re"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: \\d+ matches only integer digits, not decimals",
+  "clarification_query": "What regex pattern matches decimal numbers like 42.50?",
+  "clarification_options": [
+    "r'\\d+\\.?\\d*'",
+    "r'\\d+'",
+    "r'[0-9.]+'",
+    "r'\\d{1,5}'"
+  ],
+  "expected_user_response": "r'\\d+\\.?\\d*'",
+  "corrected_code": "import re\nmatches = re.findall(r'\\d+\\.?\\d*', 'Price: $42.50 and $8')",
+  "explanation": "\\d+ matches only integer digits. \\d+\\.?\\d* matches integers and optionally a dot followed by more digits.",
+  "difficulty": "medium",
+  "category": "misc"
+}

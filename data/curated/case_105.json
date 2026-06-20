@@ -1,0 +1,22 @@
+{
+  "id": "case_105",
+  "buggy_code": "plt.hist(data, bins=3)",
+  "task": "Plot a histogram of data with 30 bins for fine-grained distribution",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: bins=3 gives too few bins for fine resolution",
+  "clarification_query": "What bin count gives fine-grained resolution for the histogram?",
+  "clarification_options": [
+    "30",
+    "3",
+    "10",
+    "5"
+  ],
+  "expected_user_response": "30",
+  "corrected_code": "plt.hist(data, bins=30)",
+  "explanation": "bins=3 produces only 3 bars, hiding the distribution shape. bins=30 gives much finer resolution.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

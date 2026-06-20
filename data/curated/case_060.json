@@ -1,0 +1,22 @@
+{
+  "id": "case_060",
+  "buggy_code": "total = np.sum(matrix, axis=1)",
+  "task": "Sum across columns to get one total per column (sum down each column)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=1 sums across columns (per-row sum), not per-column",
+  "clarification_query": "Which axis sums down rows to give one value per column?",
+  "clarification_options": [
+    "axis=0",
+    "axis=1",
+    "axis=-1",
+    "axis=2"
+  ],
+  "expected_user_response": "axis=0",
+  "corrected_code": "total = np.sum(matrix, axis=0)",
+  "explanation": "axis=1 reduces along columns (row-wise sum). axis=0 reduces along rows, giving one sum per column.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

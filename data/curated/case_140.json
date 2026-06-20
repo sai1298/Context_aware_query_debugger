@@ -1,0 +1,22 @@
+{
+  "id": "case_140",
+  "buggy_code": "class Counter:\n    count = 0\n    def increment(self):\n        self.count += 1\n\na = Counter()\nb = Counter()\na.increment()\nprint(b.count)",
+  "task": "Each Counter instance should track its own count independently",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: count defined as class attribute, shared until instance shadow",
+  "clarification_query": "How should count be defined so each instance has its own independent counter?",
+  "clarification_options": [
+    "in __init__: self.count = 0",
+    "as class attribute: count = 0",
+    "as a property",
+    "as a class method"
+  ],
+  "expected_user_response": "in __init__: self.count = 0",
+  "corrected_code": "class Counter:\n    def __init__(self):\n        self.count = 0\n    def increment(self):\n        self.count += 1\n\na = Counter()\nb = Counter()\na.increment()\nprint(b.count)",
+  "explanation": "Class attributes are shared. self.count += 1 creates an instance attribute on a, but b.count still reads the class attribute. Initializing in __init__ ensures independence.",
+  "difficulty": "medium",
+  "category": "misc"
+}

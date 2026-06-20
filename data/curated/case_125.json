@@ -1,0 +1,22 @@
+{
+  "id": "case_125",
+  "buggy_code": "def compute_total(items):\n    total = sum(items)\n\nresult = compute_total([1,2,3])\nprint(result)",
+  "task": "Define a function that returns the sum of items",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: function has no return statement",
+  "clarification_query": "What statement is needed to output the computed total from the function?",
+  "clarification_options": [
+    "return total",
+    "print(total)",
+    "yield total",
+    "output total"
+  ],
+  "expected_user_response": "return total",
+  "corrected_code": "def compute_total(items):\n    total = sum(items)\n    return total\n\nresult = compute_total([1,2,3])\nprint(result)",
+  "explanation": "Without a return statement, the function returns None. Adding 'return total' passes the value to the caller.",
+  "difficulty": "easy",
+  "category": "misc"
+}

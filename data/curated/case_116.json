@@ -1,0 +1,22 @@
+{
+  "id": "case_116",
+  "buggy_code": "plt.imshow(img, cmap='gray')",
+  "task": "Display a color image array (RGB) \u2014 do not apply a colormap",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: cmap='gray' converts color image to grayscale",
+  "clarification_query": "How should a 3-channel RGB image be displayed without colormap distortion?",
+  "clarification_options": [
+    "plt.imshow(img) with no cmap",
+    "plt.imshow(img, cmap='gray')",
+    "plt.imshow(img, cmap='rgb')",
+    "plt.imshow(img, cmap=None, mode='RGB')"
+  ],
+  "expected_user_response": "plt.imshow(img) with no cmap",
+  "corrected_code": "plt.imshow(img)",
+  "explanation": "cmap='gray' maps single scalar values to gray shades. For RGB arrays, omit cmap so the 3 channels map to R, G, B.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

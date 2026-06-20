@@ -1,0 +1,22 @@
+{
+  "id": "case_131",
+  "buggy_code": "def add_item(item, lst=[]):\n    lst.append(item)\n    return lst\n\nlist1 = add_item('a')\nlist2 = add_item('b')",
+  "task": "Collect items in independent lists for each call (no shared default)",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: mutable default argument [] is shared across calls",
+  "clarification_query": "How should you avoid sharing a mutable default list across function calls?",
+  "clarification_options": [
+    "use lst=None and create list inside",
+    "use lst=[] but clear it",
+    "use lst=tuple()",
+    "use global instead"
+  ],
+  "expected_user_response": "use lst=None and create list inside",
+  "corrected_code": "def add_item(item, lst=None):\n    if lst is None:\n        lst = []\n    lst.append(item)\n    return lst\n\nlist1 = add_item('a')\nlist2 = add_item('b')",
+  "explanation": "Default mutable arguments are created once and reused across calls. Using None as sentinel and creating a new list inside avoids sharing.",
+  "difficulty": "medium",
+  "category": "misc"
+}

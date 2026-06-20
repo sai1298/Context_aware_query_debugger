@@ -1,0 +1,22 @@
+{
+  "id": "case_145",
+  "buggy_code": "funcs = []\nfor i in range(3):\n    funcs.append(lambda: i)\nprint([f() for f in funcs])",
+  "task": "Create a list of lambdas that capture values 0, 1, 2 independently",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: lambda captures i by reference, not by value",
+  "clarification_query": "How do you capture the current value of i in a lambda inside a loop?",
+  "clarification_options": [
+    "lambda i=i: i",
+    "lambda: i",
+    "lambda x=i: x",
+    "use a closure with a nested function"
+  ],
+  "expected_user_response": "lambda i=i: i",
+  "corrected_code": "funcs = []\nfor i in range(3):\n    funcs.append(lambda i=i: i)\nprint([f() for f in funcs])",
+  "explanation": "Closures capture variables by reference. When the loop ends i==2, all lambdas return 2. Default argument lambda i=i: i captures the value at definition time.",
+  "difficulty": "hard",
+  "category": "misc"
+}

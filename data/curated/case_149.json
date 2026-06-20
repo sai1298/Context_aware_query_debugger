@@ -1,0 +1,22 @@
+{
+  "id": "case_149",
+  "buggy_code": "data = {'a': 1, 'b': 2}\nfor k in data:\n    del data[k]",
+  "task": "Clear all entries from a dictionary by deleting keys during iteration",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: modifying dict size during iteration raises RuntimeError",
+  "clarification_query": "How do you safely delete all entries from a dict?",
+  "clarification_options": [
+    "data.clear()",
+    "del data[k] after iterating a copy: for k in list(data)",
+    "both are valid approaches",
+    "use dict.pop() in a while loop"
+  ],
+  "expected_user_response": "both are valid approaches",
+  "corrected_code": "data.clear()\n# or: for k in list(data): del data[k]",
+  "explanation": "Deleting keys while iterating the dict raises RuntimeError in Python 3. Use data.clear() or iterate over a copy with list(data).",
+  "difficulty": "medium",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_142",
+  "buggy_code": "every_other = items[::1]",
+  "task": "Get every other element of a list starting from index 0",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: step=1 returns all elements, not every other",
+  "clarification_query": "What slice step selects every other element?",
+  "clarification_options": [
+    "2",
+    "1",
+    "0",
+    "-1"
+  ],
+  "expected_user_response": "2",
+  "corrected_code": "every_other = items[::2]",
+  "explanation": "[::1] is the same as [:] \u2014 it returns all elements with step 1. [::2] skips every other element.",
+  "difficulty": "easy",
+  "category": "misc"
+}

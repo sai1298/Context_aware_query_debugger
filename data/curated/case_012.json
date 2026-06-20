@@ -1,0 +1,22 @@
+{
+  "id": "case_012",
+  "buggy_code": "result = df.groupby('region')['revenue'].sum()\nprint(result['North'])",
+  "task": "Sum revenue by region then access the North region total",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "missing_reset_index",
+  "error_location": "line 2: indexing after groupby without reset_index",
+  "clarification_query": "After groupby().sum(), is the result indexed by 'region'?",
+  "clarification_options": [
+    "yes, region is the index",
+    "no, integer index remains",
+    "it depends on the data",
+    "the result has MultiIndex"
+  ],
+  "expected_user_response": "yes, region is the index",
+  "corrected_code": "result = df.groupby('region')['revenue'].sum()\nprint(result['North'])",
+  "explanation": "After groupby('region').sum() the region column becomes the index, so result['North'] is correct. No reset_index needed here.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

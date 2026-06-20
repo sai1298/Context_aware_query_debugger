@@ -1,0 +1,22 @@
+{
+  "id": "case_047",
+  "buggy_code": "df['status'] = df['status'].replace('activ', 'active')",
+  "task": "Replace both 'activ' and 'inactiv' with their correct spellings 'active' and 'inactive'",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: only one replacement made, 'inactiv' not fixed",
+  "clarification_query": "How do you replace multiple values at once with replace()?",
+  "clarification_options": [
+    "pass a dict: replace({'activ':'active','inactiv':'inactive'})",
+    "call replace twice",
+    "use str.replace with regex",
+    "use map with a dict"
+  ],
+  "expected_user_response": "pass a dict: replace({'activ':'active','inactiv':'inactive'})",
+  "corrected_code": "df['status'] = df['status'].replace({'activ': 'active', 'inactiv': 'inactive'})",
+  "explanation": "Passing a dict to replace() performs all substitutions in one call, avoiding a second pass.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

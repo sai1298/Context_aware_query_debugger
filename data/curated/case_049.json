@@ -1,0 +1,22 @@
+{
+  "id": "case_049",
+  "buggy_code": "df['pct_change'] = df['revenue'].pct_change(periods=2)",
+  "task": "Compute period-over-period (1-period) percentage change in revenue",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: periods=2 computes 2-period change",
+  "clarification_query": "What periods value gives standard 1-period percentage change?",
+  "clarification_options": [
+    "1 (default)",
+    "2",
+    "0",
+    "-1"
+  ],
+  "expected_user_response": "1 (default)",
+  "corrected_code": "df['pct_change'] = df['revenue'].pct_change()",
+  "explanation": "periods=2 compares each value to the one 2 periods ago. The default periods=1 is needed for consecutive-period change.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

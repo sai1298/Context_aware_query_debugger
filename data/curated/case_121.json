@@ -1,0 +1,22 @@
+{
+  "id": "case_121",
+  "buggy_code": "plt.plot(x, y, color='cyan')",
+  "task": "Plot a line using the standard blue color",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: 'cyan' is not the standard blue",
+  "clarification_query": "Which color string gives the standard matplotlib blue?",
+  "clarification_options": [
+    "'blue' or 'b'",
+    "'cyan'",
+    "'navy'",
+    "'steelblue'"
+  ],
+  "expected_user_response": "'blue' or 'b'",
+  "corrected_code": "plt.plot(x, y, color='blue')",
+  "explanation": "'cyan' is a bright blue-green color. The standard blue is specified as 'blue' or the shorthand 'b'.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

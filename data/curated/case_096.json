@@ -1,0 +1,22 @@
+{
+  "id": "case_096",
+  "buggy_code": "plt.xlabel('Values')\nplt.ylabel('Time (s)')",
+  "task": "Label the x-axis as 'Time (s)' and y-axis as 'Values'",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_data_mapping",
+  "error_location": "lines 1-2: xlabel and ylabel are swapped",
+  "clarification_query": "Which axis should be labeled 'Time (s)'?",
+  "clarification_options": [
+    "x-axis (horizontal)",
+    "y-axis (vertical)",
+    "both",
+    "neither"
+  ],
+  "expected_user_response": "x-axis (horizontal)",
+  "corrected_code": "plt.xlabel('Time (s)')\nplt.ylabel('Values')",
+  "explanation": "xlabel labels the horizontal axis, ylabel the vertical. They are swapped in the buggy code.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

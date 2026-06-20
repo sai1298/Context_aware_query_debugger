@@ -1,0 +1,22 @@
+{
+  "id": "case_019",
+  "buggy_code": "df['prev_sales'] = df['sales'].shift(-1)",
+  "task": "Create a column with the previous day's sales value",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: shift(-1) shifts forward, not backward",
+  "clarification_query": "Which shift direction retrieves the previous row's value?",
+  "clarification_options": [
+    "shift(1)",
+    "shift(-1)",
+    "shift(0)",
+    "shift(2)"
+  ],
+  "expected_user_response": "shift(1)",
+  "corrected_code": "df['prev_sales'] = df['sales'].shift(1)",
+  "explanation": "shift(-1) moves values one step forward (next row). shift(1) retrieves the previous row's value.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

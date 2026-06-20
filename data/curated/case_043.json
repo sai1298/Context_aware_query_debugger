@@ -1,0 +1,22 @@
+{
+  "id": "case_043",
+  "buggy_code": "result = df.assign(total=df['price'] + df['tax'])\nresult = df.assign(discount=df['total'] * 0.1)",
+  "task": "Chain two assign calls: first add 'total', then derive 'discount' from it",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: df.assign used instead of result.assign, losing 'total'",
+  "clarification_query": "How should the second assign reference the 'total' column created in the first assign?",
+  "clarification_options": [
+    "chain: df.assign(total=...).assign(discount=lambda x: x['total']*0.1)",
+    "result.assign(discount=result['total']*0.1)",
+    "both are equivalent",
+    "use df['total'] in second assign"
+  ],
+  "expected_user_response": "chain: df.assign(total=...).assign(discount=lambda x: x['total']*0.1)",
+  "corrected_code": "result = df.assign(total=df['price']+df['tax']).assign(discount=lambda x: x['total']*0.1)",
+  "explanation": "assign() doesn't modify df in place. Chaining assign() calls with a lambda ensures the second call sees the column added by the first.",
+  "difficulty": "hard",
+  "category": "pandas"
+}

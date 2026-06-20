@@ -1,0 +1,22 @@
+{
+  "id": "case_007",
+  "buggy_code": "import matplotlib.pyplot as plt\nplt.plot(months, revenue)\nplt.show()",
+  "task": "Plot monthly revenue over time and label the axes and title so the chart is self-explanatory",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "missing_labels",
+  "error_location": "line 2-3: plt.plot / plt.show \u2014 no xlabel, ylabel, or title calls",
+  "clarification_query": "What labels and title should be added to make the chart self-explanatory?",
+  "clarification_options": [
+    "xlabel='Month', ylabel='Revenue', title='Monthly Revenue'",
+    "xlabel='Revenue', ylabel='Month', title='Revenue vs Month'",
+    "Only a title is needed",
+    "No labels are required \u2014 the data speaks for itself"
+  ],
+  "expected_user_response": "xlabel='Month', ylabel='Revenue', title='Monthly Revenue'",
+  "corrected_code": "import matplotlib.pyplot as plt\nplt.plot(months, revenue)\nplt.xlabel('Month')\nplt.ylabel('Revenue')\nplt.title('Monthly Revenue')\nplt.show()",
+  "explanation": "The original code creates the line plot but omits axis labels and a title. Adding plt.xlabel, plt.ylabel, and plt.title makes the chart self-explanatory.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

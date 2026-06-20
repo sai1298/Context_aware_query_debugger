@@ -1,0 +1,22 @@
+{
+  "id": "case_128",
+  "buggy_code": "config = {'host': 'localhost', 'port': 5432}\nprint(config['database'])",
+  "task": "Access the 'host' key from the config dictionary",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: 'database' key does not exist in config",
+  "clarification_query": "Which key holds the server hostname in the config dict?",
+  "clarification_options": [
+    "'host'",
+    "'database'",
+    "'server'",
+    "'hostname'"
+  ],
+  "expected_user_response": "'host'",
+  "corrected_code": "config = {'host': 'localhost', 'port': 5432}\nprint(config['host'])",
+  "explanation": "config has no 'database' key; accessing it raises KeyError. The correct key is 'host'.",
+  "difficulty": "easy",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_146",
+  "buggy_code": "total = sum(x*x for x in range(10) if x > 5)\nprint(list(total))",
+  "task": "Compute the sum of squares for x > 5 and print the scalar result",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: list(total) called on an integer (sum returns a scalar)",
+  "clarification_query": "What does sum() return when given a generator expression?",
+  "clarification_options": [
+    "a scalar number",
+    "a generator",
+    "a list",
+    "a tuple"
+  ],
+  "expected_user_response": "a scalar number",
+  "corrected_code": "total = sum(x*x for x in range(10) if x > 5)\nprint(total)",
+  "explanation": "sum() consumes the generator and returns a scalar. Wrapping an integer in list() raises TypeError.",
+  "difficulty": "medium",
+  "category": "misc"
+}

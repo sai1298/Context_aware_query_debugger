@@ -1,0 +1,22 @@
+{
+  "id": "case_137",
+  "buggy_code": "f = open('data.txt', 'r')\ndata = f.read()\nprocess(data)",
+  "task": "Read a file safely and ensure it is closed even if an error occurs",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: f.close() never called; no context manager used",
+  "clarification_query": "What Python construct automatically closes a file when done?",
+  "clarification_options": [
+    "with open('data.txt') as f:",
+    "try/finally with f.close()",
+    "both are correct",
+    "f.autoclose = True"
+  ],
+  "expected_user_response": "both are correct",
+  "corrected_code": "with open('data.txt', 'r') as f:\n    data = f.read()\nprocess(data)",
+  "explanation": "Without a context manager or explicit close, the file may stay open. 'with open(...)' guarantees closure even on exceptions.",
+  "difficulty": "easy",
+  "category": "misc"
+}

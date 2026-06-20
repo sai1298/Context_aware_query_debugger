@@ -1,0 +1,22 @@
+{
+  "id": "case_025",
+  "buggy_code": "result = df.apply(lambda row: row['a'] + row['b'], axis=0)",
+  "task": "Add columns 'a' and 'b' element-wise using apply across rows",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=0 applies function along columns, not rows",
+  "clarification_query": "Which axis value applies a function row-by-row?",
+  "clarification_options": [
+    "axis=1",
+    "axis=0",
+    "axis='index'",
+    "axis='both'"
+  ],
+  "expected_user_response": "axis=1",
+  "corrected_code": "result = df.apply(lambda row: row['a'] + row['b'], axis=1)",
+  "explanation": "axis=0 applies the function to each column (down rows). axis=1 applies it to each row across columns.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

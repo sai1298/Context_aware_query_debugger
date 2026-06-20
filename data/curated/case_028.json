@@ -1,0 +1,22 @@
+{
+  "id": "case_028",
+  "buggy_code": "df['age_group'] = pd.cut(df['age'], bins=[0, 18, 35, 60, 100])",
+  "task": "Bin ages into groups with labels: child, young_adult, adult, senior",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: labels parameter missing",
+  "clarification_query": "How do you assign labels to the age bins?",
+  "clarification_options": [
+    "add labels=['child','young_adult','adult','senior']",
+    "use rename after cut",
+    "the bins define the labels",
+    "use pd.qcut instead"
+  ],
+  "expected_user_response": "add labels=['child','young_adult','adult','senior']",
+  "corrected_code": "df['age_group'] = pd.cut(df['age'], bins=[0,18,35,60,100], labels=['child','young_adult','adult','senior'])",
+  "explanation": "Without labels, pd.cut uses interval notation like (0, 18]. Passing labels assigns human-readable names.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_004",
+  "buggy_code": "import numpy as np\narr = np.array([[1, 2, 3], [4, 5, 6]])\nrow_means = np.mean(arr, axis=0)",
+  "task": "Compute the mean of each row in a 2-D array",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 3: np.mean(arr, axis=0)",
+  "clarification_query": "Should the mean be computed along rows (giving one value per row) or along columns (giving one value per column)?",
+  "clarification_options": [
+    "along rows \u2014 one mean per row (axis=1)",
+    "along columns \u2014 one mean per column (axis=0)",
+    "over the entire array (no axis)",
+    "along both axes simultaneously"
+  ],
+  "expected_user_response": "along rows \u2014 one mean per row (axis=1)",
+  "corrected_code": "import numpy as np\narr = np.array([[1, 2, 3], [4, 5, 6]])\nrow_means = np.mean(arr, axis=1)",
+  "explanation": "axis=0 reduces along the first dimension (columns), producing one mean per column. To get one mean per row the correct argument is axis=1.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

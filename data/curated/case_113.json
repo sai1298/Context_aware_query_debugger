@@ -1,0 +1,22 @@
+{
+  "id": "case_113",
+  "buggy_code": "plt.pie(values, labels=None)",
+  "task": "Create a pie chart with category labels",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: labels=None suppresses category labels",
+  "clarification_query": "How should category names be passed to display pie chart labels?",
+  "clarification_options": [
+    "labels=category_list",
+    "labels=None",
+    "labels='auto'",
+    "labels=True"
+  ],
+  "expected_user_response": "labels=category_list",
+  "corrected_code": "plt.pie(values, labels=categories)",
+  "explanation": "labels=None (default) shows no labels on pie slices. Pass the list of category names to display them.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

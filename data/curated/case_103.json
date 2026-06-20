@@ -1,0 +1,22 @@
+{
+  "id": "case_103",
+  "buggy_code": "plt.bar(categories, values, width=0.9)",
+  "task": "Plot a bar chart with narrow bars (width=0.4) to show gaps between bars",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: width=0.9 makes bars very wide with minimal gaps",
+  "clarification_query": "What width value produces narrow bars with visible gaps?",
+  "clarification_options": [
+    "0.4",
+    "0.9",
+    "1.0",
+    "1.5"
+  ],
+  "expected_user_response": "0.4",
+  "corrected_code": "plt.bar(categories, values, width=0.4)",
+  "explanation": "width=0.9 fills 90% of each category slot, leaving tiny gaps. width=0.4 creates clearly visible gaps.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

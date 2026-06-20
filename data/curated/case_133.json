@@ -1,0 +1,22 @@
+{
+  "id": "case_133",
+  "buggy_code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n)",
+  "task": "Compute factorial recursively with correct base case",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 4: recursive call uses n instead of n-1",
+  "clarification_query": "What argument should the recursive factorial call use?",
+  "clarification_options": [
+    "n - 1",
+    "n",
+    "n + 1",
+    "n // 2"
+  ],
+  "expected_user_response": "n - 1",
+  "corrected_code": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)",
+  "explanation": "factorial(n) must call factorial(n-1) to decrease toward the base case n==0. Using n causes infinite recursion.",
+  "difficulty": "easy",
+  "category": "misc"
+}

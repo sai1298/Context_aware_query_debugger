@@ -1,0 +1,22 @@
+{
+  "id": "case_147",
+  "buggy_code": "with open('a.txt') as f1, open('b.txt') as f2:\n    data = f1.read()\ndata2 = f2.read()",
+  "task": "Read both files inside the context manager block",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: f2.read() called outside the with block after f2 is closed",
+  "clarification_query": "Is f2 still open after the with block exits?",
+  "clarification_options": [
+    "no, both files are closed when the with block exits",
+    "yes, only f1 is closed",
+    "yes, both remain open",
+    "it depends on the OS"
+  ],
+  "expected_user_response": "no, both files are closed when the with block exits",
+  "corrected_code": "with open('a.txt') as f1, open('b.txt') as f2:\n    data = f1.read()\n    data2 = f2.read()",
+  "explanation": "The with statement closes all managed files on exit. Reading f2 outside the block raises ValueError (I/O on closed file).",
+  "difficulty": "medium",
+  "category": "misc"
+}

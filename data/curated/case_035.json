@@ -1,0 +1,22 @@
+{
+  "id": "case_035",
+  "buggy_code": "df['ewm_avg'] = df['price'].ewm(span=5).mean()",
+  "task": "Compute exponentially weighted moving average with span=20",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: span=5 instead of span=20",
+  "clarification_query": "What span value produces the 20-period EWM average?",
+  "clarification_options": [
+    "20",
+    "5",
+    "10",
+    "50"
+  ],
+  "expected_user_response": "20",
+  "corrected_code": "df['ewm_avg'] = df['price'].ewm(span=20).mean()",
+  "explanation": "span=5 gives a fast-reacting average. The task requires span=20 for a slower, smoother average.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

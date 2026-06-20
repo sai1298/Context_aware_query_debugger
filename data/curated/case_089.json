@@ -1,0 +1,22 @@
+{
+  "id": "case_089",
+  "buggy_code": "cross = np.cross(v1, v2)\nprint(cross)",
+  "task": "Compute the dot product of v1 and v2, not the cross product",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: np.cross computes cross product",
+  "clarification_query": "Which function computes the dot (scalar) product of two vectors?",
+  "clarification_options": [
+    "np.dot(v1, v2)",
+    "np.cross(v1, v2)",
+    "np.multiply(v1, v2)",
+    "np.inner(v1, v2) for 1D"
+  ],
+  "expected_user_response": "np.dot(v1, v2)",
+  "corrected_code": "cross = np.dot(v1, v2)\nprint(cross)",
+  "explanation": "np.cross returns the cross product vector. np.dot returns the scalar dot product.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

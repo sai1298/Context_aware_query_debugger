@@ -1,0 +1,22 @@
+{
+  "id": "case_078",
+  "buggy_code": "repeated = np.repeat(arr, 3, axis=0)",
+  "task": "Repeat each element of a 1D array 3 times (element-wise repeat)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=0 on 1D is fine but verifies understanding",
+  "clarification_query": "For a 1D array, does np.repeat(arr, 3) repeat each element 3 times?",
+  "clarification_options": [
+    "yes",
+    "no, it repeats the whole array 3 times",
+    "no, use np.tile",
+    "no, axis must be specified"
+  ],
+  "expected_user_response": "yes",
+  "corrected_code": "repeated = np.repeat(arr, 3)",
+  "explanation": "np.repeat(arr, 3) with a 1D array repeats each element 3 times in place. No axis specification needed for 1D.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

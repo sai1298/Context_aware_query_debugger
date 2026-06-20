@@ -1,0 +1,22 @@
+{
+  "id": "case_027",
+  "buggy_code": "result = pd.merge(df_orders, df_customers, on='customer_id', how='inner')",
+  "task": "Keep all orders including those without matching customers",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_merge_key",
+  "error_location": "line 1: how='inner' drops unmatched orders",
+  "clarification_query": "Which merge type keeps all rows from the left dataframe?",
+  "clarification_options": [
+    "left",
+    "inner",
+    "outer",
+    "right"
+  ],
+  "expected_user_response": "left",
+  "corrected_code": "result = pd.merge(df_orders, df_customers, on='customer_id', how='left')",
+  "explanation": "inner merge drops orders with no matching customer. left join keeps all orders and fills unmatched customer columns with NaN.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

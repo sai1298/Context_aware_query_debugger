@@ -1,0 +1,22 @@
+{
+  "id": "case_070",
+  "buggy_code": "result = np.where(arr > 0, arr, -arr)",
+  "task": "Return the absolute value of each element (positive stays, negative becomes positive)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "correct \u2014 validates np.where as abs pattern",
+  "clarification_query": "Does np.where(arr>0, arr, -arr) correctly compute absolute value?",
+  "clarification_options": [
+    "yes, this is equivalent to np.abs(arr)",
+    "no, use np.abs(arr) only",
+    "no, the condition should be arr >= 0",
+    "no, -arr doesn't negate correctly"
+  ],
+  "expected_user_response": "yes, this is equivalent to np.abs(arr)",
+  "corrected_code": "result = np.where(arr > 0, arr, -arr)",
+  "explanation": "np.where(arr>0, arr, -arr) returns arr when positive and -arr (which is positive) when negative, equivalent to np.abs.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

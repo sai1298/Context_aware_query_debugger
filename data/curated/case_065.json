@@ -1,0 +1,22 @@
+{
+  "id": "case_065",
+  "buggy_code": "x = np.linspace(0, 10, 5)",
+  "task": "Create 100 evenly spaced values between 0 and 10",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: num=5 instead of num=100",
+  "clarification_query": "What is the third argument to linspace for 100 points?",
+  "clarification_options": [
+    "100",
+    "5",
+    "10",
+    "1000"
+  ],
+  "expected_user_response": "100",
+  "corrected_code": "x = np.linspace(0, 10, 100)",
+  "explanation": "linspace(start, stop, num) creates num evenly spaced points. 5 was used instead of 100.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_021",
+  "buggy_code": "freq = df['color'].value_counts()",
+  "task": "Get relative frequency (proportions) of each color value",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: missing normalize=True",
+  "clarification_query": "To get proportions instead of counts, which parameter is needed?",
+  "clarification_options": [
+    "normalize=True",
+    "relative=True",
+    "pct=True",
+    "freq=True"
+  ],
+  "expected_user_response": "normalize=True",
+  "corrected_code": "freq = df['color'].value_counts(normalize=True)",
+  "explanation": "value_counts() returns raw counts. normalize=True converts them to proportions summing to 1.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

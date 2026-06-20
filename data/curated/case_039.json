@@ -1,0 +1,22 @@
+{
+  "id": "case_039",
+  "buggy_code": "valid = df[df['age'].between(18, 65, inclusive='neither')]",
+  "task": "Filter rows where age is between 18 and 65, including both endpoints",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: inclusive='neither' excludes both endpoints",
+  "clarification_query": "Which inclusive value includes both 18 and 65?",
+  "clarification_options": [
+    "'both'",
+    "'neither'",
+    "'left'",
+    "'right'"
+  ],
+  "expected_user_response": "'both'",
+  "corrected_code": "valid = df[df['age'].between(18, 65, inclusive='both')]",
+  "explanation": "inclusive='neither' excludes 18 and 65. inclusive='both' (default) includes both endpoints.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

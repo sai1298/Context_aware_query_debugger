@@ -1,0 +1,22 @@
+{
+  "id": "case_011",
+  "buggy_code": "result = df.sort_values('sales')",
+  "task": "Sort sales data in descending order to find top performers",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: sort_values missing ascending=False",
+  "clarification_query": "Should the data be sorted in ascending or descending order?",
+  "clarification_options": [
+    "descending",
+    "ascending",
+    "random",
+    "alphabetical"
+  ],
+  "expected_user_response": "descending",
+  "corrected_code": "result = df.sort_values('sales', ascending=False)",
+  "explanation": "sort_values defaults to ascending=True. The task requires descending order so ascending=False is needed.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

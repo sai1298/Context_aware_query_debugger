@@ -1,0 +1,22 @@
+{
+  "id": "case_085",
+  "buggy_code": "rng = np.random.default_rng(42)\nsamples = rng.normal(0, 1, size=1000)\nnp.random.seed(42)\nsamples2 = np.random.normal(0, 1, 1000)",
+  "task": "Use only the new Generator API (default_rng) consistently; don't mix with legacy np.random.seed",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "lines 3-4: mixing legacy np.random.seed with new Generator API",
+  "clarification_query": "Should np.random.seed() be mixed with the default_rng() Generator API?",
+  "clarification_options": [
+    "no, use rng = np.random.default_rng(seed) for everything",
+    "yes, they work together",
+    "yes, seed sets global state for both",
+    "no, use np.random.seed only"
+  ],
+  "expected_user_response": "no, use rng = np.random.default_rng(seed) for everything",
+  "corrected_code": "rng = np.random.default_rng(42)\nsamples = rng.normal(0, 1, size=1000)\nsamples2 = rng.normal(0, 1, size=1000)",
+  "explanation": "np.random.seed() controls the legacy global RNG, separate from Generator instances. Mixing them leads to non-reproducible results.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

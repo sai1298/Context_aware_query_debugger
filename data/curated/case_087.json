@@ -1,0 +1,22 @@
+{
+  "id": "case_087",
+  "buggy_code": "interp_val = np.interp(x_new, xp, fp[::-1])",
+  "task": "Interpolate y values at new x points using xp (ascending) and fp",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: fp is reversed unnecessarily",
+  "clarification_query": "Must xp in np.interp be in ascending order, and should fp be reversed to match?",
+  "clarification_options": [
+    "xp must be ascending; fp must match xp order (no reversal)",
+    "both must be ascending",
+    "both can be in any order",
+    "fp must always be reversed"
+  ],
+  "expected_user_response": "xp must be ascending; fp must match xp order (no reversal)",
+  "corrected_code": "interp_val = np.interp(x_new, xp, fp)",
+  "explanation": "np.interp requires xp in ascending order. fp must correspond element-wise to xp \u2014 reversing fp would pair each x with the wrong y.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

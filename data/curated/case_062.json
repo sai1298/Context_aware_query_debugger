@@ -1,0 +1,22 @@
+{
+  "id": "case_062",
+  "buggy_code": "std = np.std(data, ddof=0)",
+  "task": "Compute the sample standard deviation (unbiased, ddof=1)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: ddof=0 computes population std, not sample std",
+  "clarification_query": "Which ddof value gives the unbiased sample standard deviation?",
+  "clarification_options": [
+    "ddof=1",
+    "ddof=0",
+    "ddof=2",
+    "ddof=-1"
+  ],
+  "expected_user_response": "ddof=1",
+  "corrected_code": "std = np.std(data, ddof=1)",
+  "explanation": "ddof=0 divides by N (population std). ddof=1 divides by N-1 for the unbiased sample estimate.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

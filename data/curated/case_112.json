@@ -1,0 +1,22 @@
+{
+  "id": "case_112",
+  "buggy_code": "plt.errorbar(x, y, yerr=errors, fmt='none')",
+  "task": "Plot data points connected by a line with error bars",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: fmt='none' suppresses the data line/markers",
+  "clarification_query": "What fmt value draws data points connected by a line with error bars?",
+  "clarification_options": [
+    "'-o'",
+    "'none'",
+    "'o'",
+    "'--'"
+  ],
+  "expected_user_response": "'-o'",
+  "corrected_code": "plt.errorbar(x, y, yerr=errors, fmt='-o')",
+  "explanation": "fmt='none' suppresses the data line and markers, showing only error bars. '-o' gives a line with circular markers.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

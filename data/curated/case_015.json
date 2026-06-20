@@ -1,0 +1,22 @@
+{
+  "id": "case_015",
+  "buggy_code": "result = df[['name', 'age', 'score']]\nprint(result.head())",
+  "task": "Select only name and score columns for display",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_column_selection",
+  "error_location": "line 1: 'age' column included unnecessarily",
+  "clarification_query": "Which columns should be selected?",
+  "clarification_options": [
+    "name and score only",
+    "name, age, and score",
+    "all columns",
+    "age and score only"
+  ],
+  "expected_user_response": "name and score only",
+  "corrected_code": "result = df[['name', 'score']]\nprint(result.head())",
+  "explanation": "The task specifies only name and score columns but age is also selected.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

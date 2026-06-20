@@ -1,0 +1,22 @@
+{
+  "id": "case_068",
+  "buggy_code": "stacked = np.vstack([arr1, arr2])",
+  "task": "Stack two 1D arrays side by side as columns to form a 2D matrix",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: vstack stacks as rows, not columns",
+  "clarification_query": "Which function stacks 1D arrays as columns of a 2D matrix?",
+  "clarification_options": [
+    "np.column_stack",
+    "np.vstack",
+    "np.hstack",
+    "np.stack(axis=0)"
+  ],
+  "expected_user_response": "np.column_stack",
+  "corrected_code": "stacked = np.column_stack([arr1, arr2])",
+  "explanation": "vstack treats each 1D array as a row. column_stack treats them as columns, producing shape (n, 2).",
+  "difficulty": "medium",
+  "category": "numpy"
+}

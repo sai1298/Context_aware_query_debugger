@@ -1,0 +1,22 @@
+{
+  "id": "case_115",
+  "buggy_code": "plt.savefig('output.png')",
+  "task": "Save the figure at high resolution (300 DPI) for publication",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: dpi not specified, defaults to 100",
+  "clarification_query": "Which parameter sets the resolution when saving a figure?",
+  "clarification_options": [
+    "dpi=300",
+    "resolution=300",
+    "quality=300",
+    "ppi=300"
+  ],
+  "expected_user_response": "dpi=300",
+  "corrected_code": "plt.savefig('output.png', dpi=300)",
+  "explanation": "savefig defaults to 100 DPI. For print-quality figures, dpi=300 or higher is standard.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

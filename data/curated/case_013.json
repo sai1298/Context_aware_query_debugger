@@ -1,0 +1,22 @@
+{
+  "id": "case_013",
+  "buggy_code": "df.sort_values('date', inplace=True)\nresult = df.head(10)",
+  "task": "Sort dataframe by date in place then get first 10 rows",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: inplace=True used correctly but common mistake variant",
+  "clarification_query": "Should the sort modify the original dataframe or return a new one?",
+  "clarification_options": [
+    "modify original (inplace=True)",
+    "return new dataframe",
+    "both",
+    "neither"
+  ],
+  "expected_user_response": "modify original (inplace=True)",
+  "corrected_code": "df.sort_values('date', inplace=True)\nresult = df.head(10)",
+  "explanation": "inplace=True correctly modifies df in place. Without it, df.sort_values returns a new DataFrame and df remains unsorted.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

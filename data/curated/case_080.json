@@ -1,0 +1,22 @@
+{
+  "id": "case_080",
+  "buggy_code": "idx = np.searchsorted(sorted_arr, value, side='right')",
+  "task": "Find the leftmost insertion point for value in a sorted array",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: side='right' gives insertion after existing matches",
+  "clarification_query": "Which side argument returns the leftmost insertion index?",
+  "clarification_options": [
+    "side='left'",
+    "side='right'",
+    "side='first'",
+    "side='start'"
+  ],
+  "expected_user_response": "side='left'",
+  "corrected_code": "idx = np.searchsorted(sorted_arr, value, side='left')",
+  "explanation": "side='right' inserts after any existing equal values. side='left' returns the leftmost valid position.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

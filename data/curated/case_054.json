@@ -1,0 +1,22 @@
+{
+  "id": "case_054",
+  "buggy_code": "result = df.groupby('team')['points'].agg(['mean', 'std', 'count'])\nresult.columns = ['avg', 'spread', 'n']",
+  "task": "Aggregate points by team computing mean, std, and count with renamed columns",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_aggregation",
+  "error_location": "correct \u2014 validates multi-agg with rename",
+  "clarification_query": "After agg(['mean','std','count']), can you rename columns by direct assignment to result.columns?",
+  "clarification_options": [
+    "yes, column list assignment works",
+    "no, use rename()",
+    "no, must pass as dict to agg",
+    "only if reset_index first"
+  ],
+  "expected_user_response": "yes, column list assignment works",
+  "corrected_code": "result = df.groupby('team')['points'].agg(['mean', 'std', 'count'])\nresult.columns = ['avg', 'spread', 'n']",
+  "explanation": "After agg returns a DataFrame with the aggregation names as columns, direct column list assignment renames them.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

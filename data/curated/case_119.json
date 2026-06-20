@@ -1,0 +1,22 @@
+{
+  "id": "case_119",
+  "buggy_code": "plt.plot(x, y)\n# forgot plt.show()",
+  "task": "Display the plot after drawing the line",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: plt.show() not called",
+  "clarification_query": "What function is required to display a matplotlib plot in a script?",
+  "clarification_options": [
+    "plt.show()",
+    "plt.display()",
+    "plt.render()",
+    "plt.draw()"
+  ],
+  "expected_user_response": "plt.show()",
+  "corrected_code": "plt.plot(x, y)\nplt.show()",
+  "explanation": "In scripts, plt.show() is required to render and open the plot window. Without it, the figure is created but not displayed.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

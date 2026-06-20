@@ -1,0 +1,22 @@
+{
+  "id": "case_092",
+  "buggy_code": "eye = np.eye(5, dtype=int)\nprint(eye.shape)",
+  "task": "Create a 3x3 identity matrix with integer dtype",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: np.eye(5) creates 5x5, not 3x3",
+  "clarification_query": "What first argument to np.eye creates a 3x3 matrix?",
+  "clarification_options": [
+    "3",
+    "5",
+    "(3,3)",
+    "np.eye(N=3)"
+  ],
+  "expected_user_response": "3",
+  "corrected_code": "eye = np.eye(3, dtype=int)\nprint(eye.shape)",
+  "explanation": "np.eye(5) creates a 5x5 identity matrix. np.eye(3) creates the required 3x3 matrix.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

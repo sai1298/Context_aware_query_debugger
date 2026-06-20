@@ -1,0 +1,22 @@
+{
+  "id": "case_059",
+  "buggy_code": "result = arr.T\nprint(result.shape)",
+  "task": "Transpose a 2D array and verify the shape is swapped",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "correct \u2014 validates .T attribute usage",
+  "clarification_query": "For an array of shape (m, n), what is the shape after .T?",
+  "clarification_options": [
+    "(n, m)",
+    "(m, n)",
+    "(m*n,)",
+    "(1, m, n)"
+  ],
+  "expected_user_response": "(n, m)",
+  "corrected_code": "result = arr.T\nprint(result.shape)",
+  "explanation": ".T swaps all axes. An array of shape (m, n) becomes (n, m) after transpose.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

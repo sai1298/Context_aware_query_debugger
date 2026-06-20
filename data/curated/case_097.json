@@ -1,0 +1,22 @@
+{
+  "id": "case_097",
+  "buggy_code": "plt.plot(x, y, label='Training loss')\nplt.plot(x, val_y, label='Validation loss')\nplt.show()",
+  "task": "Plot two lines and display a legend",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "missing_labels",
+  "error_location": "line 3: plt.legend() not called before plt.show()",
+  "clarification_query": "What function renders the legend on the plot?",
+  "clarification_options": [
+    "plt.legend()",
+    "plt.label()",
+    "plt.add_legend()",
+    "labels appear automatically"
+  ],
+  "expected_user_response": "plt.legend()",
+  "corrected_code": "plt.plot(x, y, label='Training loss')\nplt.plot(x, val_y, label='Validation loss')\nplt.legend()\nplt.show()",
+  "explanation": "Labels passed to plot() are not displayed unless plt.legend() is called.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

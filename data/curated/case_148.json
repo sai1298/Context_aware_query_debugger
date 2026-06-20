@@ -1,0 +1,22 @@
+{
+  "id": "case_148",
+  "buggy_code": "items = [1, 2, 3]\nfor i, v in enumerate(items, start=0):\n    print(i, v)",
+  "task": "Enumerate items starting the index counter from 1, not 0",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: start=0 (default) numbers from 0",
+  "clarification_query": "What start value makes enumerate count from 1?",
+  "clarification_options": [
+    "start=1",
+    "start=0",
+    "start=None",
+    "enumerate doesn't support start"
+  ],
+  "expected_user_response": "start=1",
+  "corrected_code": "items = [1, 2, 3]\nfor i, v in enumerate(items, start=1):\n    print(i, v)",
+  "explanation": "enumerate(items, start=0) produces (0,v),(1,v),(2,v). start=1 produces (1,v),(2,v),(3,v) for 1-based indexing.",
+  "difficulty": "easy",
+  "category": "misc"
+}

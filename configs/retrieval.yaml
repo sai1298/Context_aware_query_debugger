@@ -1,0 +1,6 @@
+encoder_model: sentence-transformers/all-MiniLM-L6-v2
+index_type: flat  # "flat" | "ivf"
+top_k: 5
+similarity_threshold: 0.7
+max_query_candidates: 10
+dedup_threshold: 0.9

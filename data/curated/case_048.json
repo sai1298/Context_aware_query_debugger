@@ -1,0 +1,22 @@
+{
+  "id": "case_048",
+  "buggy_code": "result = df.loc[df['score'] > 80 and df['grade'] == 'A']",
+  "task": "Filter rows where score > 80 AND grade is 'A'",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: Python 'and' used instead of bitwise '&' with parentheses",
+  "clarification_query": "How should multiple boolean conditions be combined in a DataFrame filter?",
+  "clarification_options": [
+    "use & with parentheses: (cond1) & (cond2)",
+    "use 'and': cond1 and cond2",
+    "use np.logical_and",
+    "use df.query()"
+  ],
+  "expected_user_response": "use & with parentheses: (cond1) & (cond2)",
+  "corrected_code": "result = df.loc[(df['score'] > 80) & (df['grade'] == 'A')]",
+  "explanation": "Python's 'and' on Series raises ValueError. Bitwise & with parenthesized conditions is required for element-wise boolean AND.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

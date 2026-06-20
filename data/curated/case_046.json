@@ -1,0 +1,22 @@
+{
+  "id": "case_046",
+  "buggy_code": "df['grade'] = df['score'].map({'A':4,'B':3,'C':2,'D':1})",
+  "task": "Map numeric scores to letter grades: >=90='A', >=80='B', >=70='C', else='D'",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: map with dict requires exact keys; score is numeric",
+  "clarification_query": "For mapping numeric ranges to categories, which approach is correct?",
+  "clarification_options": [
+    "pd.cut with labels",
+    "map with a dict",
+    "apply with lambda",
+    "replace with dict"
+  ],
+  "expected_user_response": "pd.cut with labels",
+  "corrected_code": "df['grade'] = pd.cut(df['score'], bins=[0,70,80,90,100], labels=['D','C','B','A'], right=True)",
+  "explanation": "map() with a dict requires exact key matches. For range-based mapping of numeric values, pd.cut() is appropriate.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

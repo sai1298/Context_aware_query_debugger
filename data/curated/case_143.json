@@ -1,0 +1,22 @@
+{
+  "id": "case_143",
+  "buggy_code": "for name, score in zip(scores, names):\n    print(f'{name}: {score}')",
+  "task": "Pair each name with its corresponding score (names list first, then scores)",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: zip order puts scores first, names second",
+  "clarification_query": "In zip(scores, names), which variable receives the name and which the score in the loop?",
+  "clarification_options": [
+    "name gets score and score gets name (order is swapped)",
+    "name gets name and score gets score",
+    "zip reorders automatically",
+    "it depends on list length"
+  ],
+  "expected_user_response": "name gets score and score gets name (order is swapped)",
+  "corrected_code": "for name, score in zip(names, scores):\n    print(f'{name}: {score}')",
+  "explanation": "zip(scores, names) yields (score, name) pairs. Unpacking to (name, score) assigns the score to name and vice versa.",
+  "difficulty": "medium",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_029",
+  "buggy_code": "df['name_upper'] = df['name'].str.lower()",
+  "task": "Convert the name column to uppercase",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: .str.lower() lowercases instead of uppercases",
+  "clarification_query": "Which string method converts to uppercase?",
+  "clarification_options": [
+    ".str.upper()",
+    ".str.lower()",
+    ".str.title()",
+    ".str.capitalize()"
+  ],
+  "expected_user_response": ".str.upper()",
+  "corrected_code": "df['name_upper'] = df['name'].str.upper()",
+  "explanation": ".str.lower() converts to lowercase. The task requires .str.upper() for uppercase.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

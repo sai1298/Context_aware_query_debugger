@@ -1,0 +1,22 @@
+{
+  "id": "case_084",
+  "buggy_code": "z = np.zeros((3, 4))\nz[1, 1] = 1",
+  "task": "Create a 4x4 identity matrix",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: zeros used with wrong shape instead of np.eye",
+  "clarification_query": "Which NumPy function directly creates an identity matrix?",
+  "clarification_options": [
+    "np.eye(4)",
+    "np.zeros((4,4)) with manual diagonal",
+    "np.identity(4)",
+    "both np.eye(4) and np.identity(4)"
+  ],
+  "expected_user_response": "both np.eye(4) and np.identity(4)",
+  "corrected_code": "z = np.eye(4)",
+  "explanation": "Manually setting elements in a zeros array is tedious and error-prone. np.eye(4) or np.identity(4) directly creates the identity.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

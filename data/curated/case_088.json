@@ -1,0 +1,22 @@
+{
+  "id": "case_088",
+  "buggy_code": "gradient = np.gradient(y, dx=0.5)\nprint(gradient.shape)",
+  "task": "Compute numerical gradient of y sampled at uniform spacing of 1.0",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: dx=0.5 instead of dx=1.0",
+  "clarification_query": "What spacing value should be used when y is sampled at integer intervals (x=0,1,2,...)?",
+  "clarification_options": [
+    "1.0 (or just np.gradient(y))",
+    "0.5",
+    "2.0",
+    "depends on length of y"
+  ],
+  "expected_user_response": "1.0 (or just np.gradient(y))",
+  "corrected_code": "gradient = np.gradient(y)\nprint(gradient.shape)",
+  "explanation": "np.gradient defaults to spacing=1 which matches integer-sampled data. dx=0.5 would halve the spacing, doubling gradient values.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

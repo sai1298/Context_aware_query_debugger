@@ -1,0 +1,22 @@
+{
+  "id": "case_024",
+  "buggy_code": "df.set_index('user_id')\nresult = df.loc[101]",
+  "task": "Set user_id as index then retrieve user 101",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: set_index result not assigned back",
+  "clarification_query": "Does set_index modify the dataframe in place by default?",
+  "clarification_options": [
+    "no, must assign or use inplace=True",
+    "yes, it modifies in place",
+    "only when chained",
+    "depends on pandas version"
+  ],
+  "expected_user_response": "no, must assign or use inplace=True",
+  "corrected_code": "df = df.set_index('user_id')\nresult = df.loc[101]",
+  "explanation": "set_index returns a new DataFrame. The result must be assigned back to df or inplace=True used.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

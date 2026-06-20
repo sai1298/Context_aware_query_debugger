@@ -1,0 +1,22 @@
+{
+  "id": "case_001",
+  "buggy_code": "result = df.groupby('date')['sales'].sum()",
+  "task": "Compute total sales per product category",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_groupby_key",
+  "error_location": "line 1: df.groupby('date')",
+  "clarification_query": "What column should be used to group the sales data?",
+  "clarification_options": [
+    "product_category",
+    "date",
+    "region",
+    "customer_id"
+  ],
+  "expected_user_response": "product_category",
+  "corrected_code": "result = df.groupby('product_category')['sales'].sum()",
+  "explanation": "The code groups by 'date' but the task asks for totals per product category. The groupby key should be 'product_category'.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

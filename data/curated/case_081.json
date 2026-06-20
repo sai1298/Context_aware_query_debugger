@@ -1,0 +1,22 @@
+{
+  "id": "case_081",
+  "buggy_code": "sorted_indices = np.argsort(arr)[::-1]\ntop3 = arr[sorted_indices[:3]]",
+  "task": "Get the 3 smallest values using argsort",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: [::-1] reverses to descending; omit for ascending",
+  "clarification_query": "To get indices of smallest values first, how should argsort be called?",
+  "clarification_options": [
+    "np.argsort(arr) without reversal",
+    "np.argsort(arr)[::-1]",
+    "np.argsort(-arr)",
+    "np.argsort(arr, order='descending')"
+  ],
+  "expected_user_response": "np.argsort(arr) without reversal",
+  "corrected_code": "sorted_indices = np.argsort(arr)\ntop3 = arr[sorted_indices[:3]]",
+  "explanation": "argsort returns indices in ascending order by default. Reversing with [::-1] gives largest first. For smallest 3, no reversal needed.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

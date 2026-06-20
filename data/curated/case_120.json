@@ -1,0 +1,22 @@
+{
+  "id": "case_120",
+  "buggy_code": "plt.plot(x, y, linestyle='dotted')",
+  "task": "Plot a line with a dash-dot style (alternating dashes and dots)",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: 'dotted' gives only dots, not dash-dot",
+  "clarification_query": "Which linestyle string gives alternating dashes and dots?",
+  "clarification_options": [
+    "'dashdot'",
+    "'dotted'",
+    "'dashed'",
+    "'solid'"
+  ],
+  "expected_user_response": "'dashdot'",
+  "corrected_code": "plt.plot(x, y, linestyle='dashdot')",
+  "explanation": "'dotted' uses only dots. 'dashdot' alternates between dashes and dots.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

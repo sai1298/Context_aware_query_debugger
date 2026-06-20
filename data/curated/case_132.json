@@ -1,0 +1,22 @@
+{
+  "id": "case_132",
+  "buggy_code": "count = 0\ndef increment():\n    count += 1\nincrement()",
+  "task": "Increment a global counter variable from inside a function",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: count += 1 treats count as local without global declaration",
+  "clarification_query": "What statement is needed to modify a global variable inside a function?",
+  "clarification_options": [
+    "global count",
+    "nonlocal count",
+    "extern count",
+    "count is global automatically"
+  ],
+  "expected_user_response": "global count",
+  "corrected_code": "count = 0\ndef increment():\n    global count\n    count += 1\nincrement()",
+  "explanation": "Without 'global count', Python treats count as a local variable, raising UnboundLocalError on count += 1.",
+  "difficulty": "medium",
+  "category": "misc"
+}

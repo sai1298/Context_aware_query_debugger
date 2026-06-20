@@ -1,0 +1,22 @@
+{
+  "id": "case_055",
+  "buggy_code": "df_wide = df.pivot(index='date', columns='metric', values='value')\ndf_wide = df_wide.fillna(method='ffill')",
+  "task": "Pivot then forward-fill missing values using the modern pandas API",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: fillna(method='ffill') is deprecated; use ffill() directly",
+  "clarification_query": "What is the modern pandas method for forward-filling missing values?",
+  "clarification_options": [
+    ".ffill()",
+    ".fillna(method='ffill')",
+    ".forward_fill()",
+    ".interpolate(method='pad')"
+  ],
+  "expected_user_response": ".ffill()",
+  "corrected_code": "df_wide = df.pivot(index='date', columns='metric', values='value')\ndf_wide = df_wide.ffill()",
+  "explanation": "fillna(method='ffill') is deprecated in pandas 2.x. The direct .ffill() method is the modern replacement.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

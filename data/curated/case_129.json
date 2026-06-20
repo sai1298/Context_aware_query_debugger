@@ -1,0 +1,22 @@
+{
+  "id": "case_129",
+  "buggy_code": "if score >= 90:\n    grade = 'A'\nelif score >= 70:\n    grade = 'B'\nelif score >= 80:\n    grade = 'C'",
+  "task": "Assign grades: A for >=90, B for >=80, C for >=70",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 4-5: >=80 check comes after >=70, so scores 80-89 get 'B' when they should",
+  "clarification_query": "What is the correct order for the grade thresholds?",
+  "clarification_options": [
+    ">=90, >=80, >=70",
+    ">=90, >=70, >=80",
+    ">=80, >=90, >=70",
+    ">=70, >=80, >=90"
+  ],
+  "expected_user_response": ">=90, >=80, >=70",
+  "corrected_code": "if score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelif score >= 70:\n    grade = 'C'",
+  "explanation": "elif chains are checked in order. >=70 before >=80 means scores 70-89 all become 'B' before the 80 check is reached.",
+  "difficulty": "medium",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_082",
+  "buggy_code": "p90 = np.percentile(data, 0.9)",
+  "task": "Compute the 90th percentile of the data",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: argument 0.9 instead of 90",
+  "clarification_query": "np.percentile takes a percentage value (0-100) or a fraction (0-1)?",
+  "clarification_options": [
+    "0-100 integer/float (e.g. 90)",
+    "0-1 fraction (e.g. 0.9)",
+    "either format works",
+    "depends on NumPy version"
+  ],
+  "expected_user_response": "0-100 integer/float (e.g. 90)",
+  "corrected_code": "p90 = np.percentile(data, 90)",
+  "explanation": "np.percentile expects q in the range [0, 100], not [0, 1]. 0.9 would return near the minimum value.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

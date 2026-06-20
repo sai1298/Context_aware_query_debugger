@@ -1,0 +1,22 @@
+{
+  "id": "case_018",
+  "buggy_code": "monthly = df.set_index('date').resample('D')['sales'].sum()",
+  "task": "Resample daily sales data to monthly totals",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: resample('D') gives daily, not monthly",
+  "clarification_query": "What frequency string gives monthly resampling?",
+  "clarification_options": [
+    "'ME'",
+    "'D'",
+    "'W'",
+    "'H'"
+  ],
+  "expected_user_response": "'ME'",
+  "corrected_code": "monthly = df.set_index('date').resample('ME')['sales'].sum()",
+  "explanation": "'D' resamples to daily frequency. Monthly resampling requires 'ME' (month end) or 'MS' (month start).",
+  "difficulty": "medium",
+  "category": "pandas"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_098",
+  "buggy_code": "plt.imshow(heatmap, cmap='viridis')\nplt.show()",
+  "task": "Display a heatmap and add a colorbar to show the value scale",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "missing_labels",
+  "error_location": "line 2: plt.colorbar() not called",
+  "clarification_query": "What function adds a colorbar to a matplotlib figure?",
+  "clarification_options": [
+    "plt.colorbar()",
+    "plt.add_colorbar()",
+    "plt.cbar()",
+    "plt.legend(kind='color')"
+  ],
+  "expected_user_response": "plt.colorbar()",
+  "corrected_code": "plt.imshow(heatmap, cmap='viridis')\nplt.colorbar()\nplt.show()",
+  "explanation": "imshow renders the color-mapped image but the color scale is not shown without plt.colorbar().",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

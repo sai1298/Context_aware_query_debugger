@@ -1,0 +1,22 @@
+{
+  "id": "case_095",
+  "buggy_code": "flat_idx = np.ravel_multi_index((2, 3), (5, 5))\nprint(flat_idx)",
+  "task": "Convert 2D index (row=3, col=2) in a 5x5 array to a flat index",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: row and col order swapped in the tuple",
+  "clarification_query": "In np.ravel_multi_index((row, col), shape), what is the correct order?",
+  "clarification_options": [
+    "(row, col) \u2014 row first",
+    "(col, row) \u2014 col first",
+    "(col, row) for C order",
+    "order doesn't matter"
+  ],
+  "expected_user_response": "(row, col) \u2014 row first",
+  "corrected_code": "flat_idx = np.ravel_multi_index((3, 2), (5, 5))\nprint(flat_idx)",
+  "explanation": "ravel_multi_index takes (row_index, col_index). The task specifies row=3, col=2 but the code has them swapped.",
+  "difficulty": "hard",
+  "category": "numpy"
+}

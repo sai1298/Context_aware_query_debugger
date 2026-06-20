@@ -1,0 +1,22 @@
+{
+  "id": "case_104",
+  "buggy_code": "plt.scatter(x, y, s=500)",
+  "task": "Create a scatter plot with small point size (s=20) for large datasets",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: s=500 creates oversized points",
+  "clarification_query": "What marker size is appropriate for a large, dense scatter plot?",
+  "clarification_options": [
+    "s=20",
+    "s=500",
+    "s=200",
+    "s=1000"
+  ],
+  "expected_user_response": "s=20",
+  "corrected_code": "plt.scatter(x, y, s=20)",
+  "explanation": "s=500 creates very large markers that overlap heavily on dense data. s=20 gives small, distinguishable points.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

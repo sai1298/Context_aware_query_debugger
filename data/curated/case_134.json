@@ -1,0 +1,22 @@
+{
+  "id": "case_134",
+  "buggy_code": "total = int(3.7 + 2.3)",
+  "task": "Convert the string '42' to an integer, then add 8",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: int() converts float expression, not a string",
+  "clarification_query": "How do you convert the string '42' to an integer?",
+  "clarification_options": [
+    "int('42')",
+    "float('42')",
+    "str(42)",
+    "ord('42')"
+  ],
+  "expected_user_response": "int('42')",
+  "corrected_code": "total = int('42') + 8",
+  "explanation": "int(3.7 + 2.3) evaluates the float expression then truncates. To convert a string '42', use int('42').",
+  "difficulty": "easy",
+  "category": "misc"
+}

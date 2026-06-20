@@ -1,0 +1,22 @@
+{
+  "id": "case_139",
+  "buggy_code": "def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        return func(*args, **kwargs)\n    return wrapper\n\n@my_decorator\n@another_decorator\ndef greet():\n    pass",
+  "task": "Apply decorators in the correct order: another_decorator wraps greet first, then my_decorator",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "lines 6-7: @my_decorator is outermost so it's applied last",
+  "clarification_query": "In Python, which decorator in a stack is applied first (closest to the function)?",
+  "clarification_options": [
+    "the one immediately above the function",
+    "the topmost decorator",
+    "they are applied simultaneously",
+    "order depends on decorator type"
+  ],
+  "expected_user_response": "the one immediately above the function",
+  "corrected_code": "@my_decorator\n@another_decorator\ndef greet():\n    pass",
+  "explanation": "Decorators are applied bottom-up. @another_decorator (closest to def) wraps first; @my_decorator wraps the result.",
+  "difficulty": "medium",
+  "category": "misc"
+}

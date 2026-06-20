@@ -1,0 +1,4 @@
+enabled: true
+context_dim: 256
+scale: 0.1
+zero_init: true  # Wc initialized to zero for training stability

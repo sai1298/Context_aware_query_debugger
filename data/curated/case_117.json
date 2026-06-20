@@ -1,0 +1,22 @@
+{
+  "id": "case_117",
+  "buggy_code": "fig, ax = plt.subplots()\nax.boxplot([group1, group2, group3], positions=[1, 2, 3])\nax.boxplot([group4, group5], positions=[4, 5])",
+  "task": "Plot all 5 groups in a single boxplot call",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "lines 2-3: two separate boxplot calls on same axes overlap default styling",
+  "clarification_query": "How should all 5 groups be combined into one boxplot call?",
+  "clarification_options": [
+    "ax.boxplot([g1,g2,g3,g4,g5], positions=[1,2,3,4,5])",
+    "call boxplot twice, once per set",
+    "use ax.violinplot instead",
+    "use positions='auto'"
+  ],
+  "expected_user_response": "ax.boxplot([g1,g2,g3,g4,g5], positions=[1,2,3,4,5])",
+  "corrected_code": "fig, ax = plt.subplots()\nax.boxplot([group1, group2, group3, group4, group5], positions=[1, 2, 3, 4, 5])",
+  "explanation": "Calling boxplot twice on the same axes creates overlapping whisker caps. One call with all groups is the correct approach.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

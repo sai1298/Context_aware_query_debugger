@@ -1,0 +1,22 @@
+{
+  "id": "case_101",
+  "buggy_code": "plt.plot(x, y)\nplt.show()",
+  "task": "Plot y vs x and add a descriptive title 'Sales Over Time'",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: plt.title() not called",
+  "clarification_query": "Which function sets the plot title?",
+  "clarification_options": [
+    "plt.title('Sales Over Time')",
+    "plt.label('Sales Over Time')",
+    "plt.header('Sales Over Time')",
+    "plt.name('Sales Over Time')"
+  ],
+  "expected_user_response": "plt.title('Sales Over Time')",
+  "corrected_code": "plt.plot(x, y)\nplt.title('Sales Over Time')\nplt.show()",
+  "explanation": "plt.title() sets the text displayed above the plot area.",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

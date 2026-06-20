@@ -1,0 +1,22 @@
+{
+  "id": "case_079",
+  "buggy_code": "unique_vals, counts = np.unique(arr, return_counts=False)",
+  "task": "Get unique values and their counts from an array",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: return_counts=False omits counts",
+  "clarification_query": "What argument makes np.unique also return the count of each unique value?",
+  "clarification_options": [
+    "return_counts=True",
+    "return_counts=False",
+    "counts=True",
+    "with_counts=True"
+  ],
+  "expected_user_response": "return_counts=True",
+  "corrected_code": "unique_vals, counts = np.unique(arr, return_counts=True)",
+  "explanation": "return_counts=False (default) returns only unique values. return_counts=True adds a second array of occurrence counts.",
+  "difficulty": "easy",
+  "category": "numpy"
+}

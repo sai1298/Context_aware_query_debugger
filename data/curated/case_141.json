@@ -1,0 +1,22 @@
+{
+  "id": "case_141",
+  "buggy_code": "result = 2 + 3 * 4 ** 2 - 1",
+  "task": "Compute (2 + 3) * 4 ** 2 - 1 respecting intended precedence",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: missing parentheses cause wrong evaluation order",
+  "clarification_query": "What parenthesization computes (2+3) first, then multiplies by 4**2?",
+  "clarification_options": [
+    "(2 + 3) * 4 ** 2 - 1",
+    "2 + 3 * 4 ** 2 - 1",
+    "2 + (3 * 4) ** 2 - 1",
+    "2 + 3 * (4 ** 2 - 1)"
+  ],
+  "expected_user_response": "(2 + 3) * 4 ** 2 - 1",
+  "corrected_code": "result = (2 + 3) * 4 ** 2 - 1",
+  "explanation": "Without parentheses, Python evaluates ** first, then *, then + and - left-to-right. Parentheses around (2+3) change the order.",
+  "difficulty": "medium",
+  "category": "misc"
+}

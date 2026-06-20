@@ -1,0 +1,22 @@
+{
+  "id": "case_014",
+  "buggy_code": "result = df.groupby('category')['price'].mean()",
+  "task": "Find the total price per category, not the average",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_aggregation",
+  "error_location": "line 1: .mean() should be .sum()",
+  "clarification_query": "Which aggregation function gives the total price per category?",
+  "clarification_options": [
+    "sum()",
+    "mean()",
+    "count()",
+    "max()"
+  ],
+  "expected_user_response": "sum()",
+  "corrected_code": "result = df.groupby('category')['price'].sum()",
+  "explanation": "The task asks for the total (sum) price per category. .mean() computes average instead of total.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_066",
+  "buggy_code": "x = np.arange(0, 10, 2)",
+  "task": "Create an array of values from 0 to 10 (exclusive) in steps of 0.5",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: step=2 instead of step=0.5",
+  "clarification_query": "What step value gives increments of 0.5?",
+  "clarification_options": [
+    "0.5",
+    "2",
+    "0.1",
+    "1"
+  ],
+  "expected_user_response": "0.5",
+  "corrected_code": "x = np.arange(0, 10, 0.5)",
+  "explanation": "arange(0, 10, 2) produces [0, 2, 4, 6, 8]. A step of 0.5 produces [0, 0.5, 1.0, ..., 9.5].",
+  "difficulty": "easy",
+  "category": "numpy"
+}

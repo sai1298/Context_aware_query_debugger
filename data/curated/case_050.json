@@ -1,0 +1,22 @@
+{
+  "id": "case_050",
+  "buggy_code": "q75 = df['salary'].quantile(0.5)",
+  "task": "Compute the 75th percentile of salary",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: quantile(0.5) is the median, not 75th percentile",
+  "clarification_query": "What argument gives the 75th percentile?",
+  "clarification_options": [
+    "0.75",
+    "0.5",
+    "75",
+    "0.25"
+  ],
+  "expected_user_response": "0.75",
+  "corrected_code": "q75 = df['salary'].quantile(0.75)",
+  "explanation": "quantile(0.5) returns the median (50th percentile). The 75th percentile requires quantile(0.75).",
+  "difficulty": "easy",
+  "category": "pandas"
+}

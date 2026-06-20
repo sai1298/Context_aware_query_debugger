@@ -1,0 +1,22 @@
+{
+  "id": "case_073",
+  "buggy_code": "d = np.diff(series, axis=1)",
+  "task": "Compute first-order differences along the row axis (between consecutive rows)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=1 diffs along columns",
+  "clarification_query": "Which axis computes differences between consecutive rows?",
+  "clarification_options": [
+    "axis=0",
+    "axis=1",
+    "axis=-1",
+    "axis=2"
+  ],
+  "expected_user_response": "axis=0",
+  "corrected_code": "d = np.diff(series, axis=0)",
+  "explanation": "axis=1 differences adjacent columns within a row. axis=0 differences adjacent rows (consecutive time steps).",
+  "difficulty": "medium",
+  "category": "numpy"
+}

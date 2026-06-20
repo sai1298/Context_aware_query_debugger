@@ -1,0 +1,22 @@
+{
+  "id": "case_110",
+  "buggy_code": "fig, ax1 = plt.subplots()\nax2 = ax1.twinx()\nax1.plot(x, y1, 'b')\nax2.plot(x, y2, 'r')\nax1.set_ylabel('Temperature', color='b')\nax1.set_ylabel('Pressure', color='r')",
+  "task": "Create dual y-axes: Temperature on left, Pressure on right",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 6: ax1.set_ylabel used again instead of ax2.set_ylabel",
+  "clarification_query": "Which axis object should label the right y-axis (Pressure)?",
+  "clarification_options": [
+    "ax2",
+    "ax1",
+    "both ax1 and ax2",
+    "plt.ylabel"
+  ],
+  "expected_user_response": "ax2",
+  "corrected_code": "fig, ax1 = plt.subplots()\nax2 = ax1.twinx()\nax1.plot(x, y1, 'b')\nax2.plot(x, y2, 'r')\nax1.set_ylabel('Temperature', color='b')\nax2.set_ylabel('Pressure', color='r')",
+  "explanation": "ax1.twinx() creates ax2 sharing the x-axis with a separate right y-axis. ax2.set_ylabel sets the right label.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

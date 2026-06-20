@@ -1,0 +1,22 @@
+{
+  "id": "case_123",
+  "buggy_code": "plt.savefig('chart.pdf')\nplt.show()",
+  "task": "Show the plot before saving to avoid a blank file",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: savefig before show can work but show() clears the figure first",
+  "clarification_query": "Should savefig come before or after show() to avoid saving a blank figure?",
+  "clarification_options": [
+    "savefig before show()",
+    "savefig after show()",
+    "order doesn't matter",
+    "only use savefig, skip show()"
+  ],
+  "expected_user_response": "savefig before show()",
+  "corrected_code": "plt.savefig('chart.pdf')\nplt.show()",
+  "explanation": "plt.show() clears the current figure. If savefig is called after show(), it saves an empty figure. Saving before show() is correct.",
+  "difficulty": "medium",
+  "category": "matplotlib"
+}

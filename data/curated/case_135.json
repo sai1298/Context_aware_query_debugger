@@ -1,0 +1,22 @@
+{
+  "id": "case_135",
+  "buggy_code": "name = 'Alice'\nprint('Hello, %s. You are %d years old.' % (name))",
+  "task": "Format a greeting with name and age using % formatting",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: only one value in tuple but two format specifiers",
+  "clarification_query": "How many values must be in the tuple when two format specifiers (%s and %d) are used?",
+  "clarification_options": [
+    "2 \u2014 one per specifier",
+    "1",
+    "3",
+    "any number"
+  ],
+  "expected_user_response": "2 \u2014 one per specifier",
+  "corrected_code": "name = 'Alice'\nage = 30\nprint('Hello, %s. You are %d years old.' % (name, age))",
+  "explanation": "Two format specifiers (%s and %d) require a tuple with 2 values. Providing only one causes TypeError.",
+  "difficulty": "easy",
+  "category": "misc"
+}

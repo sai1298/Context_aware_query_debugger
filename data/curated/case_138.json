@@ -1,0 +1,22 @@
+{
+  "id": "case_138",
+  "buggy_code": "try:\n    result = int(user_input)\nexcept Exception:\n    print('Not a number')",
+  "task": "Catch only ValueError when converting user input to int",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 3: except Exception catches all exceptions too broadly",
+  "clarification_query": "Which exception type should be caught for a failed int() conversion?",
+  "clarification_options": [
+    "ValueError",
+    "Exception",
+    "TypeError",
+    "RuntimeError"
+  ],
+  "expected_user_response": "ValueError",
+  "corrected_code": "try:\n    result = int(user_input)\nexcept ValueError:\n    print('Not a number')",
+  "explanation": "except Exception is too broad and may hide bugs. int() raises ValueError for non-numeric strings, so catch that specifically.",
+  "difficulty": "medium",
+  "category": "misc"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_041",
+  "buggy_code": "safe = df.where(df['price'] > 0)\nresult = safe['price'].sum()",
+  "task": "Sum only positive prices, treating non-positive as zero (not NaN)",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_filter_condition",
+  "error_location": "line 1: where() replaces non-positive with NaN, not 0",
+  "clarification_query": "How do you replace non-positive prices with 0 using where()?",
+  "clarification_options": [
+    "df['price'].where(df['price']>0, 0)",
+    "df.where(df['price']>0)",
+    "df['price'].clip(lower=0)",
+    "df[df['price']>0]['price'].sum()"
+  ],
+  "expected_user_response": "df['price'].where(df['price']>0, 0)",
+  "corrected_code": "result = df['price'].where(df['price'] > 0, 0).sum()",
+  "explanation": "where() without a replacement value uses NaN. Providing 0 as second argument replaces False-condition values with 0.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

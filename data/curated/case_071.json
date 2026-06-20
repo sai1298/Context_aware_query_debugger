@@ -1,0 +1,22 @@
+{
+  "id": "case_071",
+  "buggy_code": "any_positive = np.any(arr > 0, axis=1)\nall_positive = np.all(arr > 0, axis=0)",
+  "task": "Check if any element per row is positive, and if all elements per column are positive",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "lines 1-2: axes are correct",
+  "clarification_query": "For a 2D array, which axis checks across columns to get one result per row?",
+  "clarification_options": [
+    "axis=1",
+    "axis=0",
+    "axis=-1",
+    "no axis"
+  ],
+  "expected_user_response": "axis=1",
+  "corrected_code": "any_positive = np.any(arr > 0, axis=1)\nall_positive = np.all(arr > 0, axis=0)",
+  "explanation": "axis=1 reduces columns \u2192 one result per row. axis=0 reduces rows \u2192 one result per column. Both usages here are correct.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

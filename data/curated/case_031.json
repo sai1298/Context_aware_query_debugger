@@ -1,0 +1,22 @@
+{
+  "id": "case_031",
+  "buggy_code": "df['running_total'] = df['sales'].cumsum()\nprint(df[df['running_total'] > 1000])",
+  "task": "Show rows where cumulative sales exceed 1000, after sorting by date",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: df not sorted by date before cumsum",
+  "clarification_query": "Should the data be sorted by date before computing the cumulative sum?",
+  "clarification_options": [
+    "yes, sort by date first",
+    "no, order doesn't matter for cumsum",
+    "cumsum sorts automatically",
+    "use resample instead"
+  ],
+  "expected_user_response": "yes, sort by date first",
+  "corrected_code": "df = df.sort_values('date')\ndf['running_total'] = df['sales'].cumsum()\nprint(df[df['running_total'] > 1000])",
+  "explanation": "cumsum() depends on row order. Without sorting by date first, the running total is computed in arbitrary order.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

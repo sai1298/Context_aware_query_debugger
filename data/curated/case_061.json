@@ -1,0 +1,22 @@
+{
+  "id": "case_061",
+  "buggy_code": "mean_cols = np.mean(matrix, axis=0)",
+  "task": "Compute the mean of each row (one mean value per row)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=0 computes column means, not row means",
+  "clarification_query": "Which axis computes a mean across columns (one value per row)?",
+  "clarification_options": [
+    "axis=1",
+    "axis=0",
+    "axis=-2",
+    "no axis"
+  ],
+  "expected_user_response": "axis=1",
+  "corrected_code": "mean_cols = np.mean(matrix, axis=1)",
+  "explanation": "axis=0 collapses the row dimension, giving one mean per column. axis=1 gives one mean per row.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

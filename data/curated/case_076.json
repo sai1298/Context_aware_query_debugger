@@ -1,0 +1,22 @@
+{
+  "id": "case_076",
+  "buggy_code": "norm = np.linalg.norm(matrix, axis=0)",
+  "task": "Compute the L2 norm of each row vector in a 2D matrix",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: axis=0 computes column norms, not row norms",
+  "clarification_query": "Which axis computes the norm of each row?",
+  "clarification_options": [
+    "axis=1",
+    "axis=0",
+    "axis=-2",
+    "no axis"
+  ],
+  "expected_user_response": "axis=1",
+  "corrected_code": "norm = np.linalg.norm(matrix, axis=1)",
+  "explanation": "axis=0 treats each column as a vector. axis=1 treats each row as a vector and returns one norm per row.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_023",
+  "buggy_code": "df.rename(columns={'old_name': 'new_name', 'old_age': 'new_age'})",
+  "task": "Rename columns and update the dataframe in place",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: rename result not assigned back",
+  "clarification_query": "How should the rename be applied to update the original dataframe?",
+  "clarification_options": [
+    "assign result back or use inplace=True",
+    "rename modifies in place automatically",
+    "use df.columns = [...]",
+    "use df.update()"
+  ],
+  "expected_user_response": "assign result back or use inplace=True",
+  "corrected_code": "df.rename(columns={'old_name': 'new_name', 'old_age': 'new_age'}, inplace=True)",
+  "explanation": "rename() returns a new DataFrame without inplace=True, leaving df unchanged.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

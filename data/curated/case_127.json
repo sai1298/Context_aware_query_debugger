@@ -1,0 +1,22 @@
+{
+  "id": "case_127",
+  "buggy_code": "squares = [x^2 for x in range(10)]",
+  "task": "Create a list of squares of numbers 0-9",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: ^ is bitwise XOR, not exponentiation",
+  "clarification_query": "Which operator computes the square (exponentiation) in Python?",
+  "clarification_options": [
+    "**",
+    "^",
+    "*",
+    "//"
+  ],
+  "expected_user_response": "**",
+  "corrected_code": "squares = [x**2 for x in range(10)]",
+  "explanation": "In Python, ^ is the bitwise XOR operator. ** is the exponentiation operator.",
+  "difficulty": "easy",
+  "category": "misc"
+}

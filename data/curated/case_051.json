@@ -1,0 +1,22 @@
+{
+  "id": "case_051",
+  "buggy_code": "df['category'] = df['category'].astype('str')",
+  "task": "Convert category column to pandas Categorical type for memory efficiency",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: astype('str') converts to string, not Categorical",
+  "clarification_query": "Which dtype converts a column to pandas Categorical?",
+  "clarification_options": [
+    "'category'",
+    "'str'",
+    "'object'",
+    "'categorical'"
+  ],
+  "expected_user_response": "'category'",
+  "corrected_code": "df['category'] = df['category'].astype('category')",
+  "explanation": "astype('str') or astype('object') keeps string data. astype('category') creates an efficient Categorical representation.",
+  "difficulty": "easy",
+  "category": "pandas"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "case_017",
+  "buggy_code": "pivot = df.pivot_table(values='sales', index='product', columns='month')",
+  "task": "Create pivot table with month as rows and product as columns",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_axis",
+  "error_location": "line 1: index and columns are swapped",
+  "clarification_query": "Which dimension should be the row index of the pivot table?",
+  "clarification_options": [
+    "month",
+    "product",
+    "sales",
+    "date"
+  ],
+  "expected_user_response": "month",
+  "corrected_code": "pivot = df.pivot_table(values='sales', index='month', columns='product')",
+  "explanation": "The task wants months as rows and products as columns, but index and columns are swapped.",
+  "difficulty": "medium",
+  "category": "pandas"
+}

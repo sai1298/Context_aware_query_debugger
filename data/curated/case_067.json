@@ -1,0 +1,22 @@
+{
+  "id": "case_067",
+  "buggy_code": "result = np.dot(A, B.T)",
+  "task": "Compute the dot product of matrix A and matrix B (no transpose needed)",
+  "libs": [
+    "numpy"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: B.T transposes B unnecessarily",
+  "clarification_query": "If A is shape (m, k) and B is shape (k, n), how should the dot product be computed?",
+  "clarification_options": [
+    "np.dot(A, B)",
+    "np.dot(A, B.T)",
+    "np.dot(A.T, B)",
+    "np.dot(B, A)"
+  ],
+  "expected_user_response": "np.dot(A, B)",
+  "corrected_code": "result = np.dot(A, B)",
+  "explanation": "np.dot(A, B) computes the matrix product when A is (m,k) and B is (k,n). Transposing B would require shape (n,k) instead.",
+  "difficulty": "medium",
+  "category": "numpy"
+}

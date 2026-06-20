@@ -1,0 +1,22 @@
+{
+  "id": "case_099",
+  "buggy_code": "fig, axes = plt.subplots(2, 2)\naxes[1][2].plot(x, y)",
+  "task": "Plot on the bottom-right subplot of a 2x2 grid",
+  "libs": [
+    "matplotlib"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 2: axes[1][2] is out of bounds; should be axes[1][1]",
+  "clarification_query": "In a 2x2 subplot grid, what index accesses the bottom-right subplot?",
+  "clarification_options": [
+    "axes[1][1]",
+    "axes[1][2]",
+    "axes[2][1]",
+    "axes[2][2]"
+  ],
+  "expected_user_response": "axes[1][1]",
+  "corrected_code": "fig, axes = plt.subplots(2, 2)\naxes[1][1].plot(x, y)",
+  "explanation": "A 2x2 grid has indices 0 and 1 in each dimension. axes[1][2] raises IndexError; bottom-right is axes[1][1].",
+  "difficulty": "easy",
+  "category": "matplotlib"
+}

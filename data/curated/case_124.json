@@ -1,0 +1,22 @@
+{
+  "id": "case_124",
+  "buggy_code": "if status == 'Active':\n    print('enabled')",
+  "task": "Check if status equals 'active' (lowercase), then print 'enabled'",
+  "libs": [
+    "python"
+  ],
+  "error_type": "wrong_operation",
+  "error_location": "line 1: 'Active' differs in case from 'active'",
+  "clarification_query": "Is string comparison in Python case-sensitive?",
+  "clarification_options": [
+    "yes, 'Active' != 'active'",
+    "no, comparison is case-insensitive",
+    "only for ASCII",
+    "depends on locale"
+  ],
+  "expected_user_response": "yes, 'Active' != 'active'",
+  "corrected_code": "if status == 'active':\n    print('enabled')",
+  "explanation": "Python string comparison is case-sensitive. 'Active' does not equal 'active'.",
+  "difficulty": "easy",
+  "category": "misc"
+}

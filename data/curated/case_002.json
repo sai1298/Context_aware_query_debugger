@@ -1,0 +1,22 @@
+{
+  "id": "case_002",
+  "buggy_code": "merged = orders.merge(customers, left_on='order_id', right_on='id')",
+  "task": "Join orders with customers table using the customer identifier",
+  "libs": [
+    "pandas"
+  ],
+  "error_type": "wrong_merge_key",
+  "error_location": "line 1: orders.merge(customers, left_on='order_id', right_on='id')",
+  "clarification_query": "Which column in the orders table identifies the customer who placed each order?",
+  "clarification_options": [
+    "customer_id",
+    "order_id",
+    "product_id",
+    "order_date"
+  ],
+  "expected_user_response": "customer_id",
+  "corrected_code": "merged = orders.merge(customers, left_on='customer_id', right_on='id')",
+  "explanation": "The merge uses 'order_id' as the left key, but to join orders to customers the correct key is 'customer_id' in the orders table.",
+  "difficulty": "easy",
+  "category": "pandas"
+}
